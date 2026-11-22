@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AK • Ashvin Kethiswaran | XMB Portfolio</title>
+    <meta name="description" content="PlayStation 3 XMB Inspired Interactive Portfolio for Ashvin Kethiswaran featuring real-time WebGL wave physics, procedural audio, and retro console UI." />
+    
+    <!-- Google Fonts: Plus Jakarta Sans (PS3 Rodin-like clarity), Inter, Exo 2, Outfit, Rajdhani -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body class="theme-obsidian font-rajdhani">
+    <!-- WebGL Background Wave -->
+    <canvas id="webgl-canvas" class="background-canvas" aria-hidden="true"></canvas>
+
+    <!-- Canvas Floating Sparkles / Ambient Particles -->
+    <canvas id="particle-canvas" class="particle-canvas" aria-hidden="true"></canvas>
+
+    <!-- CRT Scanline / Subtle Vignette Overlay -->
+    <div class="screen-vignette" aria-hidden="true"></div>
+
+    <!-- Cold Boot Screen ("AK" Cinematic Intro - WebGL Dynamic Wave visible behind) -->
+    <section id="boot-screen" class="boot-screen active" role="region" aria-label="Startup Intro">
+      <div class="boot-lockup-wrapper">
+        <div class="boot-logo-lockup">
+          <!-- PlayStation-style AK Isometric Emblem -->
+          <svg class="boot-emblem" viewBox="0 0 76 80" width="76" height="80" aria-hidden="true">
+            <defs>
+              <linearGradient id="emblemGradA" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ffffff"/>
+                <stop offset="100%" stop-color="#cfd2d6"/>
+              </linearGradient>
+              <linearGradient id="emblemGradK" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ff3b69"/>
+                <stop offset="50%" stop-color="#2d7dd2"/>
+                <stop offset="100%" stop-color="#f4a261"/>
+              </linearGradient>
+              <filter id="emblemGlow">
+                <feGaussianBlur stdDeviation="3" result="glow"/>
+                <feMerge>
+                  <feMergeNode in="glow"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+            <!-- Upright Monogram 'A' -->
+            <path d="M 28,8 L 44,8 L 56,58 L 42,58 L 39,45 L 31,45 L 28,58 L 16,58 Z M 33,33 L 37,33 L 35,20 Z" fill="url(#emblemGradA)" filter="url(#emblemGlow)"/>
+            <!-- Grounded Isometric Perspective 'K' Base -->
+            <path d="M 12,62 L 40,56 L 60,64 L 38,70 Z M 40,56 L 54,51 L 66,58 L 50,63 Z M 46,64 L 60,68 L 50,72 L 36,69 Z" fill="url(#emblemGradK)" opacity="0.95" filter="url(#emblemGlow)"/>
+          </svg>
+
+          <!-- Authentic PhatBoy Slim Typography for AK -->
+          <div class="boot-wordmark-group">
+            <h1 class="boot-ak-brand" aria-label="AK">AK</h1>
+            <p class="boot-subtext-ps3">Ashvin Kethiswaran</p>
+          </div>
+        </div>
+
+        <button id="boot-enter-btn" class="boot-enter-btn" type="button" autofocus>
+          <span class="ps-btn ps-btn-cross" aria-hidden="true">
+            <svg viewBox="0 0 16 16">
+              <line x1="3.5" y1="3.5" x2="12.5" y2="12.5" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/>
+              <line x1="12.5" y1="3.5" x2="3.5" y2="12.5" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="boot-btn-text">PRESS ANY BUTTON TO START</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Main XMB Application Shell -->
+    <div id="xmb-app" class="xmb-app" style="opacity: 0; pointer-events: none;">
+      <!-- Top HUD: Clock, Date, Battery, Profile Status, Ticker -->
+      <header id="hud-header" class="hud-header" role="banner">
+        <div class="hud-left">
+          <div class="hud-network-status">
+            <span class="hud-status-dot online"></span>
+            <span class="hud-user-tag">Ashvin — <span class="status-state">Online</span></span>
+            <span class="hud-trophy-badge">🏆 Lv. 99</span>
+          </div>
+        </div>
+        <div class="hud-right">
+          <div class="hud-widget-card" id="hud-widget-card">
+            <div class="hud-widget-top">
+              <div class="hud-status-icons">
+                <span class="hud-avatar-icon" title="Profile">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="#f49342">
+                    <circle cx="12" cy="7" r="4.5"/>
+                    <path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7z"/>
+                  </svg>
+                </span>
+                <span class="hud-mail-icon" title="Messages">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="#8bc34a">
+                    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="hud-clock-group">
+                <span id="hud-date" class="hud-date">10/11 SUN</span>
+                <span id="hud-time" class="hud-time">4:46 PM</span>
+                <span class="hud-clock-icon" title="System Clock">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+                    <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                  </svg>
+                </span>
+              </div>
+            </div>
+            <div class="hud-widget-ticker" id="hud-widget-ticker">
+              <span class="hud-ticker-text" id="hud-ticker-text">Welcome to my portfolio</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- The Core Dual-Axis XMB Menu -->
+      <main id="xmb-container" class="xmb-container" role="main">
+        <!-- Horizontal Category Bar -->
+        <nav id="horizontal-bar" class="horizontal-bar" aria-label="XMB Categories">
+          <!-- Categories generated dynamically via TypeScript -->
+        </nav>
+
+        <!-- Vertical Submenu Column -->
+        <section id="vertical-column" class="vertical-column" aria-label="Category Sub-items">
+          <!-- Submenu items generated dynamically via TypeScript -->
+        </section>
+      </main>
+
+      <!-- Bottom HUD: Keyboard Navigation Hints -->
+      <footer id="hud-footer" class="hud-footer" role="contentinfo">
+        <div class="controller-hints">
+          <span class="hint-item"><span class="key-badge">← → ↑ ↓</span> <span class="hint-label">Navigate</span></span>
+          <span class="hint-item"><span class="key-badge">Enter</span> <span class="hint-label">Select</span></span>
+          <span class="hint-item"><span class="key-badge">Esc</span> <span class="hint-label">Back</span></span>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Notification Toast (Top-Right Pop-in PSN Style) -->
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+    <!-- Detail Inspection Modal (PS3 Game/Project Details Card) -->
+    <div id="detail-modal" class="detail-modal" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="modal-backdrop"></div>
+      <div class="modal-window">
+        <div class="modal-header">
+          <div class="modal-disc-icon"></div>
+          <div class="modal-title-group">
+            <span id="modal-category" class="modal-category">PROJECT / APPLICATION</span>
+            <h2 id="modal-title" class="modal-title">Project Name</h2>
+            <p id="modal-subtitle" class="modal-subtitle">Full-Stack Application</p>
+          </div>
+          <button id="modal-close-btn" class="modal-close-btn" aria-label="Close modal">
+            <svg viewBox="0 0 16 16" width="14" height="14">
+              <line x1="3.5" y1="3.5" x2="12.5" y2="12.5" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/>
+              <line x1="12.5" y1="3.5" x2="3.5" y2="12.5" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="modal-banner" class="modal-banner"></div>
+          <div class="modal-columns">
+            <div class="modal-main-col">
+              <h3 class="modal-section-heading">Overview & Architecture</h3>
+              <p id="modal-description" class="modal-description"></p>
+              
+              <div id="modal-details-extra" class="modal-details-extra"></div>
+
+              <div class="modal-tags-wrapper">
+                <h4>Technologies & Tools</h4>
+                <div id="modal-tags" class="modal-tags"></div>
+              </div>
+            </div>
+            <div class="modal-side-col">
+              <div class="modal-info-box">
+                <div id="modal-date-row" class="info-row"><span class="info-label">Released / Date</span><span id="modal-date" class="info-val">2024</span></div>
+                <div class="info-row"><span class="info-label">Category</span><span id="modal-type" class="info-val">Engineering</span></div>
+                <div id="modal-developer-row" class="info-row"><span class="info-label">Developer</span><span class="info-val">Ashvin K.</span></div>
+              </div>
+              <div id="modal-actions" class="modal-actions">
+                <!-- Action buttons (Launch Demo, Source Code, etc.) -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <span>Press <strong>[Esc]</strong> to return to XMB</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audio Player / Synthesizer Script Hook -->
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
