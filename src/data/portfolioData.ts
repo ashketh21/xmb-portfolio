@@ -458,6 +458,31 @@ export const XMB_CATEGORIES: XmbCategory[] = [
     iconSvg: SVG_ICONS.projects,
     items: [
       {
+        id: 'proj-songsnap',
+        title: 'SongSnap',
+        subtitle: 'Solo & Multiplayer Spotify Guessing Game',
+        description: 'Competitive solo & multiplayer music guessing game powered by your own public Spotify playlists with progressive 0.1s–10s audio clips and synchronized lobbies.',
+        iconSvg: SVG_ICONS.disc,
+        badge: 'Live Demo',
+        date: '2026',
+        tags: ['TypeScript', 'React', 'Vite', 'Tailwind CSS', 'Web Audio API', 'Node.js'],
+        demoUrl: 'https://songsnap.up.railway.app',
+        githubUrl: 'https://github.com/ashketh21/SongSnap',
+        action: { type: 'modal' },
+        details: {
+          role: 'Full-Stack Developer',
+          organization: 'Pinned GitHub Project',
+          overview: 'A competitive solo and multiplayer music guessing game powered by public Spotify playlists — no Spotify API keys or user allowlists required. Players guess tracks as early as possible across progressive audio clips (0.1s → 0.5s → 1s → 2s → 5s → 10s).',
+          highlights: [
+            'Sample-Accurate Progressive Audio: Decodes previews client-side via Web Audio API, automatically trims leading silence (-40 dB), and applies smooth fade-outs so 0.1s clips always contain music.',
+            'Public Spotify Playlist Import: Paste any public Spotify playlist URL (25+ playable songs) or pick from built-in curated presets (2010s Hits, 2000s Throwbacks, Classic Anthems).',
+            'Synchronized Multiplayer Lobbies (up to 12 players): 5-character room codes, shareable invite links, lock-in countdowns, live progress sidebar, and final podium.',
+            'Smart Answer Matching: Deduplicated global autocomplete and server-side verification handling Remastered/Deluxe editions, diacritics, and multi-artist credits.'
+          ],
+          skillsUsed: ['TypeScript', 'React 19', 'Vite', 'Tailwind CSS', 'Web Audio API', 'Node.js', 'Railway']
+        }
+      },
+      {
         id: 'proj-adaptive-trivia',
         title: 'Volatility Engine — Adaptive Trivia Game',
         subtitle: 'Real-Time Multiplayer Trivia & Wagering',
@@ -562,7 +587,7 @@ export const XMB_CATEGORIES: XmbCategory[] = [
         badge: 'Live Demo',
         date: '2025',
         tags: ['HTML', 'CSS', 'UI/UX Design', 'Netlify'],
-        demoUrl: 'https://ashvinkportfolio.netlify.app',
+        demoUrl: 'https://ashvinkuiuxportfolio.netlify.app',
         githubUrl: 'https://github.com/ashketh21/SEG-3125-Portfolio-Project',
         action: { type: 'modal' },
         details: {
