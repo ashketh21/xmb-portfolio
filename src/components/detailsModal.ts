@@ -11,6 +11,7 @@ export class DetailsModal {
   private categoryEl: HTMLElement | null;
   private descEl: HTMLElement | null;
   private tagsEl: HTMLElement | null;
+  private tagsWrapperEl: HTMLElement | null;
   private dateEl: HTMLElement | null;
   private dateRowEl: HTMLElement | null;
   private typeEl: HTMLElement | null;
@@ -30,6 +31,7 @@ export class DetailsModal {
     this.categoryEl = document.getElementById('modal-category');
     this.descEl = document.getElementById('modal-description');
     this.tagsEl = document.getElementById('modal-tags');
+    this.tagsWrapperEl = document.getElementById('modal-tags-wrapper');
     this.dateEl = document.getElementById('modal-date');
     this.dateRowEl = document.getElementById('modal-date-row');
     this.typeEl = document.getElementById('modal-type');
@@ -128,6 +130,7 @@ export class DetailsModal {
       this.tagsEl.innerHTML = '';
       const tags = item.tags || item.details?.skillsUsed || [];
       if (tags.length > 0) {
+        if (this.tagsWrapperEl) this.tagsWrapperEl.style.display = 'block';
         tags.forEach((t) => {
           const tag = document.createElement('span');
           tag.className = 'modal-tag-chip';
@@ -135,10 +138,7 @@ export class DetailsModal {
           this.tagsEl?.appendChild(tag);
         });
       } else {
-        const tag = document.createElement('span');
-        tag.className = 'modal-tag-chip';
-        tag.textContent = 'AK Portfolio';
-        this.tagsEl.appendChild(tag);
+        if (this.tagsWrapperEl) this.tagsWrapperEl.style.display = 'none';
       }
     }
 
@@ -196,7 +196,7 @@ export class DetailsModal {
 
       const closeActionBtn = document.createElement('button');
       closeActionBtn.className = 'modal-action-btn tertiary';
-      closeActionBtn.textContent = '○ Return to XMB';
+      closeActionBtn.textContent = 'Return';
       closeActionBtn.addEventListener('click', () => this.close());
       this.actionsEl.appendChild(closeActionBtn);
     }
