@@ -346,48 +346,8 @@ body.theme-violet { background-color: #100216; }
   padding: 0 48px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   z-index: 20;
-}
-
-.hud-left {
-  display: flex;
-  align-items: center;
-}
-
-.hud-network-status {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-family: var(--font-display);
-  font-size: 1.02rem;
-  font-weight: 600;
-  letter-spacing: 0.8px;
-  color: var(--color-white);
-  text-shadow: var(--text-shadow-crisp);
-}
-
-.hud-status-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background-color: #38ef7d;
-  box-shadow: 0 0 8px #38ef7d;
-}
-
-.hud-user-tag .status-state {
-  color: var(--color-white-70);
-  font-size: 0.95rem;
-}
-
-.hud-trophy-badge {
-  background: rgba(255, 215, 0, 0.15);
-  border: 1px solid rgba(255, 215, 0, 0.4);
-  padding: 2px 10px;
-  border-radius: 12px;
-  font-size: 0.85rem;
-  color: #ffd700;
-  text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
 }
 
 .hud-right {
