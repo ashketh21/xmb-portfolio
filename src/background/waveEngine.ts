@@ -1,5 +1,5 @@
 import { vertexShaderSource, fragmentShaderSource } from './waveShader';
-import { ThemePreset } from '../types';
+import { ThemePreset, WaveSpeed } from '../types';
 
 export interface ThemeColors {
   bgTop: [number, number, number];
@@ -182,9 +182,10 @@ export class WaveEngine {
     };
   }
 
-  public setSpeed(speed: 'slow' | 'normal' | 'fast') {
-    if (speed === 'slow') this.speedMultiplier = 0.6;
-    else if (speed === 'fast') this.speedMultiplier = 1.6;
+  public setSpeed(speed: WaveSpeed) {
+    if (speed === 'static') this.speedMultiplier = 0.0;
+    else if (speed === 'slow') this.speedMultiplier = 0.55;
+    else if (speed === 'fast') this.speedMultiplier = 1.65;
     else this.speedMultiplier = 1.0;
   }
 

@@ -46,17 +46,17 @@
           <div class="hud-widget-card" id="hud-widget-card">
             <div class="hud-widget-top">
               <div class="hud-status-icons">
-                <span class="hud-avatar-icon" title="Profile">
+                <button id="hud-profile-btn" class="hud-icon-btn hud-avatar-icon" type="button" title="Jump to Profile" aria-label="Jump to Profile">
                   <svg viewBox="0 0 24 24" width="16" height="16" fill="#f49342">
                     <circle cx="12" cy="7" r="4.5"/>
                     <path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7z"/>
                   </svg>
-                </span>
-                <span class="hud-mail-icon" title="Messages">
+                </button>
+                <button id="hud-contact-btn" class="hud-icon-btn hud-mail-icon" type="button" title="Jump to Contact" aria-label="Jump to Contact">
                   <svg viewBox="0 0 24 24" width="16" height="16" fill="#8bc34a">
                     <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                   </svg>
-                </span>
+                </button>
               </div>
               <div class="hud-clock-group">
                 <span id="hud-date" class="hud-date">10/11 SUN</span>
@@ -92,7 +92,7 @@
       <footer id="hud-footer" class="hud-footer" role="contentinfo">
         <div class="controller-hints">
           <span class="hint-item"><span class="key-badge">← → ↑ ↓</span> <span class="hint-label">Navigate</span></span>
-          <span class="hint-item"><span class="key-badge">Enter</span> <span class="hint-label">Select</span></span>
+          <span class="hint-item"><span class="key-badge">Enter</span> <span id="hud-enter-label" class="hint-label">Select</span></span>
           <span class="hint-item"><span class="key-badge">Esc</span> <span class="hint-label">Back</span></span>
         </div>
       </footer>
@@ -106,7 +106,7 @@
       <div class="modal-backdrop"></div>
       <div class="modal-window">
         <div class="modal-header">
-          <div class="modal-disc-icon"></div>
+          <div id="modal-disc-icon" class="modal-disc-icon"></div>
           <div class="modal-title-group">
             <span id="modal-category" class="modal-category">PROJECT / APPLICATION</span>
             <h2 id="modal-title" class="modal-title">Project Name</h2>
@@ -123,21 +123,24 @@
           <div id="modal-banner" class="modal-banner"></div>
           <div class="modal-columns">
             <div class="modal-main-col">
-              <h3 class="modal-section-heading">Overview & Architecture</h3>
+              <h3 id="modal-section-heading" class="modal-section-heading">Overview & Architecture</h3>
               <p id="modal-description" class="modal-description"></p>
               
               <div id="modal-details-extra" class="modal-details-extra"></div>
 
               <div id="modal-tags-wrapper" class="modal-tags-wrapper">
-                <h4>Technologies & Tools</h4>
+                <h4 id="modal-tags-heading">Technologies & Tools</h4>
                 <div id="modal-tags" class="modal-tags"></div>
               </div>
             </div>
             <div class="modal-side-col">
               <div class="modal-info-box">
-                <div id="modal-date-row" class="info-row"><span class="info-label">Released / Date</span><span id="modal-date" class="info-val">2024</span></div>
-                <div class="info-row"><span class="info-label">Category</span><span id="modal-type" class="info-val">Engineering</span></div>
+                <div id="modal-date-row" class="info-row"><span id="modal-date-label" class="info-label">Released / Date</span><span id="modal-date" class="info-val">2024</span></div>
+                <div class="info-row"><span id="modal-type-label" class="info-label">Category</span><span id="modal-type" class="info-val">Engineering</span></div>
+                <div id="modal-org-row" class="info-row" style="display: none;"><span id="modal-org-label" class="info-label">Organization</span><span id="modal-org" class="info-val"></span></div>
+                <div id="modal-metric-row" class="info-row" style="display: none;"><span id="modal-metric-label" class="info-label">Standing</span><span id="modal-metric" class="info-val"></span></div>
                 <div id="modal-developer-row" class="info-row"><span class="info-label">Developer</span><span class="info-val">Ashvin K.</span></div>
+                <div id="modal-extra-info" class="modal-extra-info"></div>
               </div>
               <div id="modal-actions" class="modal-actions">
                 <!-- Action buttons (Launch Demo, Source Code, etc.) -->

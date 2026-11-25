@@ -12,15 +12,17 @@ export interface NavigationHandler {
 export class InputManager {
   private handler: NavigationHandler;
 
-  // Touch gesture tracking
+  // Touch & wheel gesture tracking
   private touchStartX = 0;
   private touchStartY = 0;
   private touchThreshold = 45;
+  private lastWheelTime = 0;
 
   constructor(handler: NavigationHandler) {
     this.handler = handler;
     this.bindKeyboard();
     this.bindTouch();
+    this.bindWheel();
   }
 
   private bindKeyboard() {
@@ -115,6 +117,30 @@ export class InputManager {
           this.handler.onPrevItem();
         } else {
           this.handler.onNextItem();
+        }
+      }
+    }, { passive: true });
+  }
+
+  private bindWheel() {
+    window.addEventListener('wheel', (e) => {
+      if (!this.handler.isActive()) return;
+      const now = performance.now();
+      if (now - this.lastWheelTime < 160) return;
+
+      if (Math.abs(e.deltaY) >= Math.abs(e.deltaX) && Math.abs(e.deltaY) > 12) {
+        this.lastWheelTime = now;
+        if (e.deltaY > 0) {
+          this.handler.onNextItem();
+        } else {
+          this.handler.onPrevItem();
+        }
+      } else if (Math.abs(e.deltaX) > 22) {
+        this.lastWheelTime = now;
+        if (e.deltaX > 0) {
+          this.handler.onNextCategory();
+        } else {
+          this.handler.onPrevCategory();
         }
       }
     }, { passive: true });

@@ -1,13 +1,17 @@
-import { AppSettings, FontPreset, ThemePreset } from '../types';
+import { AppSettings, FontPreset, ThemePreset, WaveSpeed } from '../types';
 
 const STORAGE_KEY = 'ak_xmb_settings_v2';
+
+const prefersReducedMotion =
+  typeof window !== 'undefined' &&
+  window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 
 const DEFAULT_SETTINGS: AppSettings = {
   theme: 'obsidian',
   fontPreset: 'rajdhani',
-  waveSpeed: 'normal',
+  waveSpeed: prefersReducedMotion ? 'static' : 'normal',
   waveSharpness: 1.0,
-  particlesEnabled: true,
+  particlesEnabled: !prefersReducedMotion,
   soundEnabled: true,
   masterVolume: 0.85,
   clock24Hour: false,
@@ -69,8 +73,8 @@ class StateManager {
     return nextFont;
   }
 
-  public cycleWaveSpeed(): 'slow' | 'normal' | 'fast' {
-    const speeds: ('slow' | 'normal' | 'fast')[] = ['slow', 'normal', 'fast'];
+  public cycleWaveSpeed(): WaveSpeed {
+    const speeds: WaveSpeed[] = ['static', 'slow', 'normal', 'fast'];
     const idx = speeds.indexOf(this.settings.waveSpeed);
     const nextSpeed = speeds[(idx + 1) % speeds.length];
     this.update({ waveSpeed: nextSpeed });
@@ -83,9 +87,24 @@ class StateManager {
     return next;
   }
 
+  public cycleVolume(): { enabled: boolean; volume: number } {
+    const steps = [0, 0.35, 0.7, 1.0];
+    const current = this.settings.soundEnabled ? this.settings.masterVolume : 0;
+    const nearestIdx = steps.reduce((bestIdx, val, i) =>
+      Math.abs(val - current) < Math.abs(steps[bestIdx] - current) ? i : bestIdx
+    , 0);
+    const nextVol = steps[(nearestIdx + 1) % steps.length];
+    const enabled = nextVol > 0;
+    this.update({
+      soundEnabled: enabled,
+      masterVolume: enabled ? nextVol : 0,
+    });
+    return { enabled, volume: nextVol };
+  }
+
   public toggleSound(): boolean {
     const next = !this.settings.soundEnabled;
-    this.update({ soundEnabled: next });
+    this.update({ soundEnabled: next, masterVolume: next && this.settings.masterVolume === 0 ? 0.7 : this.settings.masterVolume });
     return next;
   }
 

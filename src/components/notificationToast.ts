@@ -2,18 +2,36 @@ import { sound } from '../audio/soundEngine';
 
 export class NotificationToast {
   private container: HTMLElement | null;
+  private activeByKey: Map<string, { el: HTMLElement; dismissTimer: number }> = new Map();
 
   constructor() {
     this.container = document.getElementById('toast-container');
   }
 
-  public show(title: string, message: string, iconType: 'trophy' | 'info' | 'check' | 'mail' = 'info') {
+  public show(
+    title: string,
+    message: string,
+    iconType: 'trophy' | 'info' | 'check' | 'mail' = 'info',
+    dedupeKey?: string
+  ) {
     if (!this.container) return;
 
     if (iconType === 'trophy') {
       sound.playTrophy();
     } else {
       sound.playSelect();
+    }
+
+    // Replace existing toast with the same dedupeKey in place to avoid stacking
+    if (dedupeKey && this.activeByKey.has(dedupeKey)) {
+      const existing = this.activeByKey.get(dedupeKey)!;
+      window.clearTimeout(existing.dismissTimer);
+      const titleNode = existing.el.querySelector('.toast-title');
+      const msgNode = existing.el.querySelector('.toast-message');
+      if (titleNode) titleNode.textContent = title;
+      if (msgNode) msgNode.textContent = message;
+      existing.dismissTimer = this.scheduleDismiss(existing.el, dedupeKey);
+      return;
     }
 
     const toast = document.createElement('div');
@@ -54,15 +72,24 @@ export class NotificationToast {
       toast.classList.add('visible');
     });
 
-    // Auto dismiss after 3.8s
-    setTimeout(() => {
-      toast.classList.remove('visible');
-      setTimeout(() => {
-        if (toast.parentElement) {
-          toast.parentElement.removeChild(toast);
+    const dismissTimer = this.scheduleDismiss(toast, dedupeKey);
+    if (dedupeKey) {
+      this.activeByKey.set(dedupeKey, { el: toast, dismissTimer });
+    }
+  }
+
+  private scheduleDismiss(toastEl: HTMLElement, dedupeKey?: string): number {
+    return window.setTimeout(() => {
+      toastEl.classList.remove('visible');
+      if (dedupeKey && this.activeByKey.get(dedupeKey)?.el === toastEl) {
+        this.activeByKey.delete(dedupeKey);
+      }
+      window.setTimeout(() => {
+        if (toastEl.parentElement) {
+          toastEl.parentElement.removeChild(toastEl);
         }
       }, 500);
-    }, 3800);
+    }, 3400);
   }
 }
 

@@ -51,10 +51,12 @@ export type ThemePreset = 'ruby' | 'obsidian' | 'cobalt' | 'emerald' | 'amber' |
 
 export type FontPreset = 'rodin' | 'inter' | 'exo' | 'rajdhani';
 
+export type WaveSpeed = 'static' | 'slow' | 'normal' | 'fast';
+
 export interface AppSettings {
   theme: ThemePreset;
   fontPreset: FontPreset;
-  waveSpeed: 'slow' | 'normal' | 'fast';
+  waveSpeed: WaveSpeed;
   waveSharpness: number;
   particlesEnabled: boolean;
   soundEnabled: boolean;

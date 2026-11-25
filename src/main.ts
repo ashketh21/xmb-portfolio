@@ -8,7 +8,25 @@ import { toast } from './components/notificationToast';
 import { BootSequence } from './components/bootSequence';
 import { HudHeader } from './components/hudHeader';
 import { InputManager } from './input/inputManager';
-import { XmbCategory, XmbSubItem } from './types';
+import { trophyManager } from './components/trophyManager';
+import { AppSettings, XmbCategory, XmbSubItem } from './types';
+
+const THEME_SWATCHES: Record<string, { label: string; color: string }> = {
+  obsidian: { label: 'Obsidian', color: '#8fa3bf' },
+  ruby: { label: 'Ruby', color: '#e11d48' },
+  cobalt: { label: 'Cobalt', color: '#38bdf8' },
+  emerald: { label: 'Emerald', color: '#10b981' },
+  amber: { label: 'Royal Gold', color: '#f59e0b' },
+  violet: { label: 'Violet', color: '#a855f7' },
+  monthly: { label: 'Monthly', color: '#f472b6' },
+};
+
+const FONT_LABELS: Record<string, string> = {
+  rajdhani: 'Rajdhani',
+  rodin: 'Rodin Clean',
+  inter: 'Inter Crisp',
+  exo: 'Exo 2',
+};
 
 class XMBApplication {
   private waveEngine!: WaveEngine;
@@ -23,13 +41,23 @@ class XMBApplication {
   // DOM Elements
   private horizontalBarEl!: HTMLElement;
   private verticalColumnEl!: HTMLElement;
+  private hudEnterLabelEl: HTMLElement | null = null;
 
   constructor() {
     this.initDOM();
     this.initEngines();
     this.renderHorizontalBar();
     this.renderVerticalColumn();
+    this.updateFooterHint();
     this.initInput();
+    this.bindHudShortcuts();
+
+    trophyManager.trackCategoryVisit(this.currentCategory().id, XMB_CATEGORIES.length);
+    trophyManager.subscribe(() => {
+      if (this.currentCategory().id === 'profile') {
+        this.renderVerticalColumn();
+      }
+    });
 
     window.addEventListener('resize', () => {
       this.updateCategoryPositions();
@@ -40,6 +68,22 @@ class XMBApplication {
   private initDOM() {
     this.horizontalBarEl = document.getElementById('horizontal-bar') as HTMLElement;
     this.verticalColumnEl = document.getElementById('vertical-column') as HTMLElement;
+    this.hudEnterLabelEl = document.getElementById('hud-enter-label');
+  }
+
+  private bindHudShortcuts() {
+    const profileBtn = document.getElementById('hud-profile-btn');
+    const contactBtn = document.getElementById('hud-contact-btn');
+
+    profileBtn?.addEventListener('click', () => {
+      const idx = XMB_CATEGORIES.findIndex((c) => c.id === 'profile');
+      if (idx >= 0) this.setCategory(idx);
+    });
+
+    contactBtn?.addEventListener('click', () => {
+      const idx = XMB_CATEGORIES.findIndex((c) => c.id === 'contact');
+      if (idx >= 0) this.setCategory(idx);
+    });
   }
 
   private initEngines() {
@@ -53,7 +97,6 @@ class XMBApplication {
 
     // Boot sequence
     this.bootSequence = new BootSequence(() => {
-      // Called when boot sequence completes
       this.syncThemeWithAppState();
       this.hudHeader.showWelcome(true);
     });
@@ -66,15 +109,20 @@ class XMBApplication {
       sound.setMuted(!settings.soundEnabled);
       sound.setVolume(settings.masterVolume);
 
-      // Body theme & font preset classes
       document.body.className = `theme-${settings.theme} font-${settings.fontPreset}`;
+
+      // Keep live Settings value pills synced in place
+      if (this.currentCategory().id === 'settings') {
+        this.renderVerticalColumn();
+      }
     });
 
-    // Initial environment settings (wave retains startup violet until boot completes)
+    // Initial environment settings
     const settings = appState.getSettings();
     this.waveEngine.setSpeed(settings.waveSpeed);
     this.particleField.setEnabled(settings.particlesEnabled);
     sound.setMuted(!settings.soundEnabled);
+    sound.setVolume(settings.masterVolume);
     document.body.className = `theme-${settings.theme} font-${settings.fontPreset}`;
   }
 
@@ -84,6 +132,7 @@ class XMBApplication {
     this.waveEngine.setSpeed(settings.waveSpeed);
     this.particleField.setEnabled(settings.particlesEnabled);
     sound.setMuted(!settings.soundEnabled);
+    sound.setVolume(settings.masterVolume);
     document.body.className = `theme-${settings.theme} font-${settings.fontPreset}`;
   }
 
@@ -181,7 +230,7 @@ class XMBApplication {
         break;
 
       case 'reboot':
-        toast.show('System Reboot', 'Restarting System...', 'info');
+        toast.show('System Reboot', 'Restarting System...', 'info', 'reboot');
         setTimeout(() => {
           this.hudHeader.showWelcome(false);
           this.waveEngine.setTheme('obsidian');
@@ -191,19 +240,13 @@ class XMBApplication {
 
       case 'copy':
         if (action.payload) {
-          navigator.clipboard
-            .writeText(action.payload)
-            .then(() => {
-              toast.show('Clipboard Utility', `Copied to clipboard: ${action.payload}`, 'check');
-            })
-            .catch(() => {
-              toast.show('Clipboard Utility', `Copy failed — email: ${action.payload}`, 'info');
-            });
+          this.copyToClipboard(action.payload);
         }
         break;
 
       case 'download': {
-        toast.show('Save Data Utility', 'Initiating Resume PDF download...', 'info');
+        toast.show('Save Data Utility', 'Downloading Ashvin_Kethiswaran_Resume.pdf', 'info', 'resume');
+        trophyManager.unlock('save-data');
         const a = document.createElement('a');
         a.href = action.payload || '#';
         a.download = 'Ashvin_Kethiswaran_Resume.pdf';
@@ -215,10 +258,45 @@ class XMBApplication {
 
       case 'link':
         if (action.payload) {
-          sound.playSelect();
+          toast.show('Opening Link', item.subtitle || item.title, 'info', `link-${item.id}`);
+          if (this.currentCategory().id === 'contact') {
+            trophyManager.unlock('new-connection');
+          }
           window.open(action.payload, '_blank', 'noopener,noreferrer');
         }
         break;
+    }
+  }
+
+  private copyToClipboard(text: string) {
+    const onSuccess = () => {
+      toast.show('Clipboard Utility', `Copied: ${text}`, 'check', 'clipboard');
+      trophyManager.unlock('new-connection');
+    };
+
+    if (navigator.clipboard?.writeText) {
+      navigator.clipboard
+        .writeText(text)
+        .then(onSuccess)
+        .catch(() => this.fallbackCopy(text, onSuccess));
+    } else {
+      this.fallbackCopy(text, onSuccess);
+    }
+  }
+
+  private fallbackCopy(text: string, onSuccess: () => void) {
+    try {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      onSuccess();
+    } catch {
+      toast.show('Clipboard Utility', `Email: ${text}`, 'info', 'clipboard');
     }
   }
 
@@ -227,15 +305,16 @@ class XMBApplication {
       case 'theme-picker': {
         const next = appState.cycleTheme();
         const names: Record<string, string> = {
-          ruby: 'Ruby Crimson (Original)',
+          ruby: 'Ruby Crimson',
           obsidian: 'Midnight Obsidian',
-          cobalt: 'PlayStation Classic Cobalt',
+          cobalt: 'PlayStation Cobalt',
           emerald: 'Aurora Emerald',
           amber: 'Royal Gold',
           violet: 'Regal Violet',
-          monthly: 'Dynamic Monthly Color'
+          monthly: 'Dynamic Monthly Color',
         };
-        toast.show('Theme Settings', `Background Theme changed to: ${names[next] || next}`, 'info');
+        toast.show('Theme Settings', `Background: ${names[next] || next}`, 'info', 'setting-theme');
+        trophyManager.unlock('wave-alchemist');
         break;
       }
       case 'font-picker': {
@@ -244,33 +323,35 @@ class XMBApplication {
           rodin: 'PS3 Rodin Clean (Plus Jakarta Sans)',
           inter: 'High-Contrast Crisp (Inter)',
           exo: 'Console Geometric (Exo 2)',
-          rajdhani: 'Classic Tech (Rajdhani)'
+          rajdhani: 'Classic Tech (Rajdhani)',
         };
-        toast.show('Typography Settings', `Display Font: ${fontNames[nextFont] || nextFont}`, 'info');
+        toast.show('Typography Settings', `Font: ${fontNames[nextFont] || nextFont}`, 'info', 'setting-font');
+        trophyManager.unlock('wave-alchemist');
         break;
       }
       case 'wave-speed-toggle': {
         const nextSpeed = appState.cycleWaveSpeed();
-        toast.show('Display Settings', `Wave Motion Speed: ${nextSpeed.toUpperCase()}`, 'info');
+        toast.show('Display Settings', `Wave Speed: ${nextSpeed.toUpperCase()}`, 'info', 'setting-speed');
         break;
       }
       case 'particle-toggle': {
         const active = appState.toggleParticles();
-        toast.show('Display Settings', `Ambient Particles: ${active ? 'ENABLED' : 'DISABLED'}`, 'info');
+        toast.show('Display Settings', `Ambient Particles: ${active ? 'ON' : 'OFF'}`, 'info', 'setting-particles');
         break;
       }
       case 'sound-toggle': {
-        const active = appState.toggleSound();
-        toast.show('Audio Utility', `Sound Effects: ${active ? 'ENABLED' : 'MUTED'}`, 'info');
+        const { enabled, volume } = appState.cycleVolume();
+        const label = enabled ? `${Math.round(volume * 100)}%` : 'MUTED';
+        toast.show('Audio Utility', `Sound Volume: ${label}`, 'info', 'setting-sound');
         break;
       }
       case 'clock-toggle': {
         const is24h = appState.toggleClockFormat();
-        toast.show('Date & Time Utility', `Clock Display: ${is24h ? '24-HOUR' : '12-HOUR (AM/PM)'}`, 'info');
+        toast.show('Date & Time Utility', `Clock: ${is24h ? '24-HOUR' : '12-HOUR (AM/PM)'}`, 'info', 'setting-clock');
         break;
       }
       default:
-        toast.show('System Settings', 'Option updated successfully', 'check');
+        toast.show('System Settings', 'Option updated', 'check', 'setting-generic');
         break;
     }
   }
@@ -288,6 +369,60 @@ class XMBApplication {
     const item = this.currentItem();
     if (item) {
       detailsModal.open(item, this.currentCategory().label);
+    }
+  }
+
+  // --- Helper: Live Settings Badge HTML ---
+  private getSettingValueHtml(item: XmbSubItem, settings: AppSettings): string {
+    if (item.action.type !== 'setting') return '';
+    switch (item.action.payload) {
+      case 'theme-picker': {
+        const info = THEME_SWATCHES[settings.theme] || THEME_SWATCHES.obsidian;
+        return `<span class="row-setting-value"><span class="setting-swatch" style="background:${info.color}"></span>${info.label}</span>`;
+      }
+      case 'font-picker':
+        return `<span class="row-setting-value">${FONT_LABELS[settings.fontPreset] || settings.fontPreset}</span>`;
+      case 'wave-speed-toggle':
+        return `<span class="row-setting-value">${settings.waveSpeed.toUpperCase()}</span>`;
+      case 'particle-toggle':
+        return `<span class="row-setting-value">${settings.particlesEnabled ? 'ON' : 'OFF'}</span>`;
+      case 'sound-toggle':
+        return `<span class="row-setting-value">${settings.soundEnabled ? `${Math.round(settings.masterVolume * 100)}%` : 'MUTED'}</span>`;
+      case 'clock-toggle':
+        return `<span class="row-setting-value">${settings.clock24Hour ? '24H' : '12H'}</span>`;
+      default:
+        return '';
+    }
+  }
+
+  // --- Helper: Context-Aware Footer Action Hint ---
+  private updateFooterHint() {
+    if (!this.hudEnterLabelEl) return;
+    const item = this.currentItem();
+    if (!item) return;
+
+    switch (item.action.type) {
+      case 'copy':
+        this.hudEnterLabelEl.textContent = 'Copy Email';
+        break;
+      case 'link':
+        this.hudEnterLabelEl.textContent = 'Open Link';
+        break;
+      case 'download':
+        this.hudEnterLabelEl.textContent = 'Download PDF';
+        break;
+      case 'setting':
+        this.hudEnterLabelEl.textContent = 'Cycle Option';
+        break;
+      case 'reboot':
+        this.hudEnterLabelEl.textContent = 'Restart';
+        break;
+      case 'modal':
+        this.hudEnterLabelEl.textContent = item.id === 'contact-message' ? 'Compose' : 'Open Details';
+        break;
+      default:
+        this.hudEnterLabelEl.textContent = 'Select';
+        break;
     }
   }
 
@@ -340,14 +475,31 @@ class XMBApplication {
 
   private renderVerticalColumn() {
     this.verticalColumnEl.innerHTML = '';
-    const items = this.currentCategory().items;
+    const cat = this.currentCategory();
+    const items = cat.items;
+    const settings = appState.getSettings();
+    const showMiniTags = ['projects', 'experience', 'skills'].includes(cat.id);
 
     items.forEach((item, index) => {
       const rowEl = document.createElement('div');
       rowEl.className = 'xmb-sub-row';
       rowEl.dataset.index = String(index);
 
-      const badgeHtml = item.badge ? `<span class="row-badge">${item.badge}</span>` : '';
+      const settingValHtml = this.getSettingValueHtml(item, settings);
+      const isTrophyRow = item.id === 'profile-trophies';
+      const dynamicBadge = isTrophyRow
+        ? `${trophyManager.getUnlockedCount()} / ${trophyManager.getTotalCount()}`
+        : item.badge;
+      const dynamicSubtitle = isTrophyRow
+        ? `${trophyManager.getUnlockedCount()} / ${trophyManager.getTotalCount()} Trophies Unlocked (${trophyManager.getProgressPercent()}%)`
+        : item.subtitle;
+
+      const isLiveBadge = dynamicBadge?.toLowerCase() === 'live demo';
+      const badgeHtml = settingValHtml
+        ? settingValHtml
+        : dynamicBadge
+        ? `<span class="row-badge${isLiveBadge ? ' badge-live' : ''}">${dynamicBadge}</span>`
+        : '';
 
       const hasLogo = Boolean(item.image);
       const isEmblem = !hasLogo && Boolean(item.iconSvg && item.iconSvg.includes('viewBox="0 0 48 48"'));
@@ -357,6 +509,14 @@ class XMBApplication {
         : (item.iconSvg || SVG_FALLBACK);
       const iconBoxClass = hasLogo ? 'row-icon-box has-logo' : isEmblem ? 'row-icon-box is-emblem' : 'row-icon-box';
 
+      const miniTagsHtml =
+        showMiniTags && item.tags && item.tags.length > 0
+          ? `<div class="row-mini-tags">${item.tags
+              .slice(0, 4)
+              .map((t) => `<span class="row-mini-chip">${t}</span>`)
+              .join('')}</div>`
+          : '';
+
       rowEl.innerHTML = `
         <div class="${iconBoxClass}">${iconContent}</div>
         <div class="row-text-content">
@@ -364,7 +524,8 @@ class XMBApplication {
             <span class="row-title">${item.title}</span>
             ${badgeHtml}
           </div>
-          ${item.subtitle ? `<span class="row-subtitle">${item.subtitle}</span>` : ''}
+          ${dynamicSubtitle ? `<span class="row-subtitle">${dynamicSubtitle}</span>` : ''}
+          ${miniTagsHtml}
         </div>
       `;
 
@@ -382,6 +543,8 @@ class XMBApplication {
     const rows = this.verticalColumnEl.querySelectorAll<HTMLElement>('.xmb-sub-row');
     // Position previous items cleanly ABOVE the 15vh horizontal category bar
     const aboveBarGap = Math.max(215, Math.round(window.innerHeight * 0.21) + 56);
+    const hasExtraRowContent = ['projects', 'experience', 'skills'].includes(this.currentCategory().id);
+    const firstBelowGap = hasExtraRowContent ? 128 : 108;
 
     rows.forEach((el, index) => {
       const diff = index - this.selectedItemIndex;
@@ -394,7 +557,7 @@ class XMBApplication {
         el.classList.add('selected');
       } else if (diff > 0) {
         // Items BELOW the selected item (airy PS3 spacing)
-        const yOffset = 108 + (diff - 1) * 70;
+        const yOffset = firstBelowGap + (diff - 1) * 70;
         el.style.transform = `translateY(${yOffset}px)`;
         const opacity = Math.max(0.24, 0.62 - (diff - 1) * 0.12);
         el.style.opacity = String(opacity);
@@ -417,10 +580,13 @@ class XMBApplication {
   private updateXmbDisplay() {
     this.updateCategoryPositions();
     this.renderVerticalColumn();
+    this.updateFooterHint();
+    trophyManager.trackCategoryVisit(this.currentCategory().id, XMB_CATEGORIES.length);
   }
 
   private updateVerticalSelection() {
     this.updateVerticalPositions();
+    this.updateFooterHint();
   }
 }
 

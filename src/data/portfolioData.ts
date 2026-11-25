@@ -32,7 +32,27 @@ export const SVG_ICONS = {
 
   email: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>`,
 
-  // Custom PS3-style Emblem Tiles (48x48) for Education & Projects
+  // Distinct Monochrome Settings Icons (24x24)
+  palette: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 0 0 0 18c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>`,
+  typography: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.5 4v3h5v12h3V7h5V4h-13zm19 5h-9v3h3v7h3v-7h3V9z"/></svg>`,
+  wave: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M2 12c2.5-5 5.5-5 8 0s5.5 5 8 0 2.5-2.5 4-2.5"/><path d="M2 17c2.5-4 5.5-4 8 0s5.5 4 8 0 2.5-2 4-2" opacity="0.55"/></svg>`,
+  sparkles: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.1 6.2L20 10l-5.9 1.8L12 18l-2.1-6.2L4 10l5.9-1.8L12 2zm7 12l1 3 3 1-3 1-1 3-1-3-3-1 3-1 1-3zM5 15l.8 2.2L8 18l-2.2.8L5 21l-.8-2.2L2 18l2.2-.8L5 15z"/></svg>`,
+  speaker: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>`,
+  clock: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>`,
+  power: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42A6.92 6.92 0 0 1 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.05.88-3.9 2.59-5.41L6.17 5.17A8.932 8.932 0 0 0 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z"/></svg>`,
+
+  // Custom PS3-style Emblem Tiles (48x48)
+  profileAvatar: `<svg viewBox="0 0 48 48" fill="none"><rect x="2" y="2" width="44" height="44" rx="11" fill="#101827" stroke="rgba(147,197,253,0.65)" stroke-width="1.5"/><circle cx="24" cy="24" r="15" fill="rgba(59,130,246,0.16)" stroke="rgba(255,255,255,0.28)" stroke-width="1.2"/><text x="24" y="30" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-weight="800" font-size="16" letter-spacing="1">AK</text><circle cx="37" cy="37" r="4.5" fill="#22C55E" stroke="#101827" stroke-width="2"/></svg>`,
+  skillLanguages: `<svg viewBox="0 0 48 48" fill="none"><rect x="2" y="2" width="44" height="44" rx="11" fill="#0F172A" stroke="rgba(56,189,248,0.65)" stroke-width="1.5"/><path d="M19 16l-8 8 8 8M29 16l8 8-8 8M26 13l-4 22" stroke="#38BDF8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  skillAutomation: `<svg viewBox="0 0 48 48" fill="none"><rect x="2" y="2" width="44" height="44" rx="11" fill="#1A140A" stroke="rgba(245,158,11,0.65)" stroke-width="1.5"/><path d="M26 9L14 26h9l-1 13 12-17h-9l1-13z" fill="rgba(245,158,11,0.25)" stroke="#FBBF24" stroke-width="2" stroke-linejoin="round"/></svg>`,
+  skillFullstack: `<svg viewBox="0 0 48 48" fill="none"><rect x="2" y="2" width="44" height="44" rx="11" fill="#131026" stroke="rgba(167,139,250,0.65)" stroke-width="1.5"/><path d="M24 11l14 7-14 7-14-7 14-7z" fill="rgba(167,139,250,0.25)" stroke="#C4B5FD" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 24l14 7 14-7M10 30l14 7 14-7" stroke="#A78BFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  skillEnterprise: `<svg viewBox="0 0 48 48" fill="none"><rect x="2" y="2" width="44" height="44" rx="11" fill="#0B1E1A" stroke="rgba(45,212,191,0.65)" stroke-width="1.5"/><ellipse cx="24" cy="15" rx="11" ry="4.5" fill="rgba(45,212,191,0.22)" stroke="#5EEAD4" stroke-width="1.8"/><path d="M13 15v9c0 2.5 4.9 4.5 11 4.5s11-2 11-4.5v-9M13 24v9c0 2.5 4.9 4.5 11 4.5s11-2 11-4.5v-9" stroke="#2DD4BF" stroke-width="1.8"/></svg>`,
+  certBadge: `<svg viewBox="0 0 48 48" fill="none"><rect x="2" y="2" width="44" height="44" rx="11" fill="#1C1608" stroke="rgba(250,204,21,0.65)" stroke-width="1.5"/><circle cx="24" cy="20" r="9" fill="rgba(250,204,21,0.2)" stroke="#FACC15" stroke-width="2"/><path d="M19 28l-2 10 7-3.5L31 38l-2-10" stroke="#FDE047" stroke-width="1.8" stroke-linejoin="round"/><path d="M20.5 20l2.5 2.5 4.8-5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  contactEmail: `<svg viewBox="0 0 48 48" fill="none"><rect x="2" y="2" width="44" height="44" rx="11" fill="#111C2D" stroke="rgba(96,165,250,0.65)" stroke-width="1.5"/><rect x="10" y="14" width="28" height="20" rx="3" fill="rgba(96,165,250,0.18)" stroke="#93C5FD" stroke-width="1.8"/><path d="M11 16l13 10 13-10" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  contactGithub: `<svg viewBox="0 0 48 48" fill="none"><rect x="2" y="2" width="44" height="44" rx="11" fill="#111318" stroke="rgba(255,255,255,0.45)" stroke-width="1.5"/><path d="M24 11c-7.18 0-13 5.82-13 13 0 5.75 3.72 10.62 8.89 12.34.65.12.89-.28.89-.63 0-.31-.01-1.13-.02-2.21-3.62.79-4.38-1.74-4.38-1.74-.59-1.5-1.44-1.9-1.44-1.9-1.18-.81.09-.79.09-.79 1.3.09 1.99 1.34 1.99 1.34 1.16 1.99 3.04 1.41 3.78 1.08.12-.84.45-1.41.82-1.74-2.89-.33-5.92-1.44-5.92-6.43 0-1.42.51-2.58 1.34-3.49-.13-.33-.58-1.65.13-3.44 0 0 1.09-.35 3.58 1.33a12.4 12.4 0 0 1 6.51 0c2.48-1.68 3.57-1.33 3.57-1.33.71 1.79.26 3.11.13 3.44.83.91 1.34 2.07 1.34 3.49 0 5-3.04 6.1-5.94 6.42.47.4.88 1.2.88 2.41 0 1.74-.02 3.14-.02 3.57 0 .35.23.75.9.62A13 13 0 0 0 37 24c0-7.18-5.82-13-13-13z" fill="#FFFFFF"/></svg>`,
+  contactLinkedin: `<svg viewBox="0 0 48 48" fill="none"><rect x="2" y="2" width="44" height="44" rx="11" fill="#0B1F3A" stroke="rgba(59,130,246,0.7)" stroke-width="1.5"/><path d="M16.5 19.5v14M16.5 14.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM23 33.5v-8.2c0-2.5 1.7-4.3 4.2-4.3 2.4 0 3.8 1.6 3.8 4.3v8.2M23 19.5v14" stroke="#60A5FA" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  contactMessage: `<svg viewBox="0 0 48 48" fill="none"><rect x="2" y="2" width="44" height="44" rx="11" fill="#0E2219" stroke="rgba(52,211,153,0.65)" stroke-width="1.5"/><path d="M11 14h26a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H19l-8 6V16a2 2 0 0 1 2-2z" fill="rgba(52,211,153,0.2)" stroke="#34D399" stroke-width="1.8" stroke-linejoin="round"/><path d="M17 21h14M17 26h9" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/></svg>`,
+
   uottawa: `<svg viewBox="0 0 48 48" fill="none"><rect x="2" y="2" width="44" height="44" rx="11" fill="#6E0014" stroke="rgba(255,255,255,0.45)" stroke-width="1.5"/><path d="M10 11h28v15c0 8.5-6.2 13.8-14 16.5C16.2 39.8 10 34.5 10 26V11z" fill="#8F001A" stroke="rgba(255,255,255,0.75)" stroke-width="1.4"/><text x="24" y="29" text-anchor="middle" fill="#FFFFFF" font-family="Georgia, serif" font-weight="700" font-size="16" letter-spacing="-0.5">uO</text></svg>`,
 
   songsnap: `<svg viewBox="0 0 48 48" fill="none"><rect x="2" y="2" width="44" height="44" rx="11" fill="#0C1F14" stroke="rgba(29,185,84,0.65)" stroke-width="1.5"/><circle cx="24" cy="24" r="14" fill="#1DB954" fill-opacity="0.18" stroke="#1DB954" stroke-width="1.6"/><path d="M16 20c5-1.6 11-1.3 15.8.8M17.5 25c4.2-1.2 9.2-1 13.2.7M19 29.8c3.2-.8 7-.6 10 .5" stroke="#1DB954" stroke-width="2.4" stroke-linecap="round"/><circle cx="34" cy="14" r="3.5" fill="#1DB954"/></svg>`,
@@ -59,42 +79,40 @@ export const XMB_CATEGORIES: XmbCategory[] = [
         id: 'setting-theme',
         title: 'Background Color & Theme',
         subtitle: 'Theme Settings',
-        description: 'Adjust the real-time wave dynamic colors. Select from Ruby Red, Midnight Obsidian, PlayStation Cobalt, Emerald, Amber, or Violet.',
-        iconSvg: SVG_ICONS.settings,
-        badge: 'Customizable',
+        description: 'Cycle real-time WebGL wave themes: Midnight Obsidian, Ruby Crimson, PlayStation Cobalt, Aurora Emerald, Royal Gold, Regal Violet, or Dynamic Monthly.',
+        iconSvg: SVG_ICONS.palette,
         action: { type: 'setting', payload: 'theme-picker' }
       },
       {
         id: 'setting-font',
         title: 'Display Font & Legibility',
         subtitle: 'Typography Settings',
-        description: 'Cycle between high-visibility XMB font styles: PS3 Rodin Clean (Plus Jakarta Sans), High-Contrast Crisp (Inter), Console Geometric (Exo 2), and Classic Tech (Rajdhani).',
-        iconSvg: SVG_ICONS.settings,
-        badge: 'Live Preview',
+        description: 'Switch between XMB typography presets: Rajdhani, PS3 Rodin Clean (Plus Jakarta Sans), High-Contrast Inter, and Console Geometric (Exo 2).',
+        iconSvg: SVG_ICONS.typography,
         action: { type: 'setting', payload: 'font-picker' }
       },
       {
         id: 'setting-wave-speed',
         title: 'Wave Motion Speed',
         subtitle: 'Visual Effects',
-        description: 'Modify the WebGL trigonometric simulation speed for the background silk waves (Slow, Normal, Fast).',
-        iconSvg: SVG_ICONS.settings,
+        description: 'Adjust the WebGL silk wave simulation speed (Static, Slow, Normal, Fast).',
+        iconSvg: SVG_ICONS.wave,
         action: { type: 'setting', payload: 'wave-speed-toggle' }
       },
       {
         id: 'setting-particles',
         title: 'Particle Effects',
         subtitle: 'Display Settings',
-        description: 'Toggle the floating ambient PS3 dust particles and glowing motes drifting across the viewport.',
-        iconSvg: SVG_ICONS.settings,
+        description: 'Toggle floating ambient PS3 dust particles and glowing motes across the viewport.',
+        iconSvg: SVG_ICONS.sparkles,
         action: { type: 'setting', payload: 'particle-toggle' }
       },
       {
         id: 'setting-sound',
         title: 'Sound Effects Volume',
         subtitle: 'Audio Settings',
-        description: 'Toggle and adjust Web Audio procedural navigation clicks, confirmation chirps, and boot harmonics.',
-        iconSvg: SVG_ICONS.settings,
+        description: 'Step through Web Audio UI sound levels (Muted, 35%, 70%, 100%).',
+        iconSvg: SVG_ICONS.speaker,
         action: { type: 'setting', payload: 'sound-toggle' }
       },
       {
@@ -102,15 +120,15 @@ export const XMB_CATEGORIES: XmbCategory[] = [
         title: 'Time & Date Format',
         subtitle: 'System Date Utility',
         description: 'Switch between 12-Hour (AM/PM) and 24-Hour digital clock display in the top-right HUD.',
-        iconSvg: SVG_ICONS.settings,
+        iconSvg: SVG_ICONS.clock,
         action: { type: 'setting', payload: 'clock-toggle' }
       },
       {
         id: 'setting-reboot',
         title: 'Restart System',
         subtitle: 'System Power Utility',
-        description: 'Replay the boot-up sequence and return to the startup screen.',
-        iconSvg: SVG_ICONS.settings,
+        description: 'Replay the midnight fade-in startup sequence.',
+        iconSvg: SVG_ICONS.power,
         badge: 'Reboot',
         action: { type: 'reboot' }
       }
@@ -126,28 +144,28 @@ export const XMB_CATEGORIES: XmbCategory[] = [
       {
         id: 'profile-main',
         title: 'Ashvin Kethiswaran',
-        subtitle: 'Computer Engineering • University of Ottawa',
-        description: 'Fourth-year Computer Engineering student at the University of Ottawa with a strong foundation in software development, data analytics, and system automation.',
-        iconSvg: SVG_ICONS.profile,
+        subtitle: 'Computer Engineering • University of Ottawa • Open to 2027 New Grad Roles',
+        description: 'Fourth-year Computer Engineering student at the University of Ottawa focused on software engineering, data pipelines, and system automation.',
+        iconSvg: SVG_ICONS.profileAvatar,
         badge: 'uOttawa',
         date: 'Class of 2026',
-        tags: ['Python', 'R', 'Java', 'SQL', 'TypeScript', 'Automation'],
+        tags: ['Python', 'R', 'SQL', 'TypeScript', 'Java', 'ETL & Automation'],
         action: { type: 'modal' },
         details: {
-          role: 'Computer Engineering Student (BASc)',
+          role: 'BASc Computer Engineering (Co-op)',
           organization: 'University of Ottawa • Ajax / Ottawa, ON',
-          gradeOrMetric: '4th Year (2022 – 2026)',
-          overview: 'I’m a fourth-year Computer Engineering student at the University of Ottawa with a strong foundation in software development, data analytics, and system automation. I’ve worked with Python, R, Java, and SQL to build tools, streamline processes, and work with large datasets — whether it’s backend development, data pipelines, automation scripts, or full-stack apps, I enjoy building clean, efficient solutions that make life easier for users and teams.',
+          gradeOrMetric: '4th Year',
+          overview: 'I’m a fourth-year Computer Engineering student at the University of Ottawa with a strong foundation in software development, data analytics, and system automation. I build reliable backend services, automated ETL pipelines, and full-stack apps that eliminate manual work and make life easier for teams.',
           highlights: [
-            'Architected Python/pandas ETL pipelines at Curtiss-Wright, cutting manual report generation time by 80%.',
-            'Built automated Power Automate workflows and custom Power Apps for the President’s Office at the Public Service Commission of Canada.',
-            'Modernized national economic reporting pipelines with R, Python, Oracle, and SQL Server during a 1-year term at Statistics Canada.',
-            'Languages: English (Native/Bilingual), Tamil (Native/Bilingual), French (Limited Working).'
+            'Curtiss-Wright Defense Solutions: Engineered Python/pandas ETL pipelines cutting manual QC reporting time by 80% (15+ hrs/week saved) and led SAP ECC → S/4HANA schema validation.',
+            'Public Service Commission of Canada: Built Power Automate workflows & SharePoint data models improving data accuracy by 30% and cutting turnaround times by 25%+.',
+            'Statistics Canada: Migrated 5 legacy SAS ETL workflows into modern R & Python pipelines, accelerating securities data acquisition by 50% across Oracle & SQL Server.',
+            'Languages: English (Native), Tamil (Native), French (Limited Working).'
           ],
           extraInfo: {
             'Location': 'Ajax / Ottawa, Ontario, Canada',
-            'University': 'University of Ottawa (BASc, Computer Engineering)',
-            'Focus': 'Software Dev, Data Pipelines & System Automation',
+            'Availability': 'Open to 2027 New Grad SWE & Data Roles',
+            'Focus': 'Software Engineering, Data Pipelines & Automation',
             'Languages': 'English, Tamil, French (Limited Working)'
           }
         }
@@ -187,22 +205,15 @@ export const XMB_CATEGORIES: XmbCategory[] = [
       {
         id: 'profile-trophies',
         title: 'Trophy Collection',
-        subtitle: '5 Trophies Unlocked (100%)',
-        description: 'Career milestones, co-op impact, certifications, and hackathon achievements.',
+        subtitle: 'Track Unlocked Portfolio Trophies',
+        description: 'View all trophies unlocked while exploring the XMB portfolio.',
         iconSvg: SVG_ICONS.trophy,
-        badge: 'Platinum',
+        badge: '0 / 5',
         action: { type: 'modal' },
         details: {
-          role: 'Engineering & Co-op Trophies',
+          role: 'Exploration Trophies',
           organization: 'Portfolio Network',
-          overview: 'Verified milestones unlocked across co-op placements, hackathons, and university projects:',
-          highlights: [
-            '🏆 Platinum — ETL Efficiency: Reduced manual quality-control report generation time by 80% at Curtiss-Wright.',
-            '🥇 Gold — Public Sector Modernizer: Replaced paper workflows with Power Apps & Power Automate at PSC Canada.',
-            '🥇 Gold — National Data Steward: Modernized Foreign Direct Investment reporting in R, Python & SQL at Statistics Canada.',
-            '🥈 Silver — Hackathon Builder: Built MedX AI health assistant at uOttaHack 2025 with Gadget, Remix & OpenAI.',
-            '🥉 Bronze — Certified Analyst: Completed Python & R data-analytics certifications.'
-          ]
+          overview: 'Explore the XMB portfolio to unlock hidden PlayStation-style trophies.'
         }
       }
     ]
@@ -218,71 +229,77 @@ export const XMB_CATEGORIES: XmbCategory[] = [
         id: 'skill-languages',
         title: 'Programming Languages',
         subtitle: 'Core Development & Analytics',
-        description: 'Python, R, Java, SQL, TypeScript, JavaScript, HTML5, CSS3.',
-        iconSvg: SVG_ICONS.code,
-        tags: ['Python', 'R', 'Java', 'SQL', 'TypeScript', 'JavaScript'],
+        description: 'Python, R, SQL, SAS, C/C++, Java, TypeScript, JavaScript, HTML5, CSS3.',
+        iconSvg: SVG_ICONS.skillLanguages,
+        badge: '7 Core',
+        tags: ['Python', 'R', 'SQL', 'TypeScript', 'Java', 'C/C++', 'SAS'],
         action: { type: 'modal' },
         details: {
-          overview: 'Hands-on production experience across backend automation, statistical computing, mobile apps, and full-stack web development.',
+          role: 'Languages & Paradigms',
+          overview: 'Production experience across backend automation, statistical computing, mobile apps, and full-stack web engineering.',
           highlights: [
-            'Python: Automated ETL pipelines (pandas), Flask web apps, Selenium web scraping, and PyMuPDF document parsing.',
-            'R: Modernized legacy economic reporting workflows and statistical data pipelines at Statistics Canada.',
-            'SQL: Complex analytical queries across Oracle, SQL Server, and PostgreSQL (Neon) for large datasets.',
-            'Java & TypeScript: Native Android development (Android Studio) and full-stack Next.js / Remix / Node.js apps.'
+            'Python: Automated ETL pipelines (pandas, NumPy, scikit-learn), Flask apps, Selenium scrapers, and PyMuPDF parsing.',
+            'R & SAS: Migrated 5 legacy SAS ETL workflows into modern R (tidyverse) & Python pipelines at Statistics Canada.',
+            'SQL: Complex analytical queries across Oracle, SQL Server, and PostgreSQL (Neon) validating billion-dollar datasets.',
+            'TypeScript, Java & C/C++: Full-stack Next.js/Remix/Node.js apps, native Android apps, and systems coursework.'
           ]
         }
       },
       {
         id: 'skill-automation',
         title: 'Data Pipelines & Process Automation',
-        subtitle: 'Top Skills & Enterprise Workflows',
-        description: 'Microsoft Power Automate, Microsoft Power Apps, Microsoft Excel, SharePoint, pandas, ETL Pipelines, Oracle & SQL Server.',
-        iconSvg: SVG_ICONS.skills,
+        subtitle: 'ETL, BI & Power Platform',
+        description: 'ETL Pipelines, pandas, scikit-learn, Power BI, Tableau, Microsoft Power Automate, Power Apps, Excel, SharePoint.',
+        iconSvg: SVG_ICONS.skillAutomation,
         badge: 'Top Skill',
-        tags: ['Power Automate', 'Power Apps', 'Excel', 'pandas', 'ETL', 'SharePoint'],
+        tags: ['ETL Pipelines', 'pandas', 'Power Automate', 'Power BI', 'Tableau', 'TF-IDF'],
         action: { type: 'modal' },
         details: {
-          overview: 'Specializing in eliminating manual bottlenecks by connecting enterprise data sources into reliable automated workflows.',
+          role: 'Data & Automation',
+          overview: 'Specializing in eliminating manual bottlenecks by connecting enterprise data sources into reliable, validated automated workflows.',
           highlights: [
-            'Microsoft Power Platform: Built end-to-end Power Automate flows and custom internal Power Apps replacing paper-based processes.',
-            'Data Integrity & Reporting: Structured SharePoint & Excel data models with automated validation rules.',
-            'Manufacturing & ERP Integration: Extracted and aggregated complex datasets across Agile PLM, FactoryLogix MES, and SAP ERP.',
-            'Data Science & NLP: Local TF-IDF cosine similarity ranking, stock data collection automation, and large-scale SQL querying.'
+            'Manufacturing ETL: Cut manual QC reporting by 80% (15+ hrs/week saved) across Agile PLM, FactoryLogix MES, and SAP ERP.',
+            'Microsoft Power Platform: Deployed Power Automate workflows and custom Power Apps improving accuracy by 30% and cutting turnaround by 25%+.',
+            'Analytics & ML: Built hybrid TF-IDF cosine similarity + skill-gap ranking in scikit-learn and interactive dashboards in Power BI & Tableau.'
           ]
         }
       },
       {
         id: 'skill-fullstack',
-        title: 'Full-Stack & Mobile Engineering',
-        subtitle: 'Web, APIs & Android',
-        description: 'React, Next.js, Remix, Node.js, Express, Flask, Prisma, PostgreSQL, Android Studio, Firebase, Tailwind CSS.',
-        iconSvg: SVG_ICONS.experience,
-        tags: ['React', 'Next.js', 'Node.js', 'Flask', 'Prisma', 'Firebase'],
+        title: 'Full-Stack, WebGL & Mobile',
+        subtitle: 'Web Apps, APIs & Android',
+        description: 'React, Next.js, Remix, Node.js, Express, WebSockets, Flask, Prisma, WebGL/GLSL, Web Audio API, Android Studio, Firebase.',
+        iconSvg: SVG_ICONS.skillFullstack,
+        badge: 'Web & Mobile',
+        tags: ['React', 'Next.js', 'Node.js', 'WebSockets', 'WebGL / GLSL', 'Flask', 'Firebase'],
         action: { type: 'modal' },
         details: {
-          overview: 'Building interactive, user-focused full-stack web applications and native mobile apps from database schema to UI.',
+          role: 'Application Engineering',
+          overview: 'Building interactive, user-focused full-stack web apps, real-time multiplayer systems, and native mobile applications.',
           highlights: [
             'Real-Time Web Apps: Monorepo architecture with Node.js/Express WebSockets, Prisma ORM, Neon PostgreSQL, and Next.js.',
-            'AI & Third-Party APIs: Integrated OpenAI API, Google Maps Places API, and Gadget serverless backends (MedX).',
-            'Mobile Development: Built native Java Android apps backed by Firebase in Android Studio.',
-            'UI/UX Craft: Clean responsive interfaces with Tailwind CSS, Radix UI, Vite, and WebGL.'
+            'Creative Web & Audio: Custom WebGL GLSL silk-wave shaders and zero-asset Web Audio API synthesis (this portfolio & SongSnap).',
+            'AI & Third-Party APIs: OpenAI API, Google Maps Places API, and Gadget full-stack platform (MedX).',
+            'Mobile Development: Native Java Android apps backed by Firebase in Android Studio.'
           ]
         }
       },
       {
         id: 'skill-enterprise',
-        title: 'Enterprise Systems & Dev Tools',
-        subtitle: 'ERP, MES & Workflow Tooling',
-        description: 'Agile PLM, FactoryLogix MES, SAP ERP, Oracle, SQL Server, Git, GitHub, Vercel, Netlify, Agile/Scrum.',
-        iconSvg: SVG_ICONS.settings,
-        tags: ['Agile PLM', 'FactoryLogix MES', 'SAP ERP', 'Oracle', 'Git', 'Agile'],
+        title: 'Enterprise Systems, Cloud & Databases',
+        subtitle: 'ERP, Azure, Databases & DevOps',
+        description: 'PostgreSQL, Oracle, SQL Server, Microsoft Azure, Agile PLM, FactoryLogix MES, SAP ECC / S/4HANA, Git, CI/CD, Agile/Scrum.',
+        iconSvg: SVG_ICONS.skillEnterprise,
+        badge: 'ERP & Cloud',
+        tags: ['PostgreSQL', 'Oracle', 'SQL Server', 'Azure', 'SAP S/4HANA', 'CI/CD'],
         action: { type: 'modal' },
         details: {
-          overview: 'Experienced working inside cross-functional enterprise, aerospace/manufacturing, and federal government engineering teams.',
+          role: 'Infrastructure & Enterprise',
+          overview: 'Experienced working inside cross-functional aerospace/defense manufacturing and federal government engineering teams.',
           highlights: [
-            'Manufacturing & Enterprise Systems: Agile PLM, FactoryLogix MES, and SAP ERP data extraction and aggregation.',
-            'Databases: Oracle Database, Microsoft SQL Server, PostgreSQL (Neon), and Firebase Realtime/Firestore.',
-            'Developer Workflow: Git/GitHub version control, Vercel & Netlify deployments, and Agile team collaboration.'
+            'Enterprise Migrations: Led data quality verification and schema mapping for SAP ECC → SAP S/4HANA migration at Curtiss-Wright.',
+            'Databases & Cloud: Oracle, SQL Server, PostgreSQL (Neon), Firebase, Microsoft Azure (Data Factory & Azure DevOps).',
+            'DevOps & Delivery: Git/GitHub, CI/CD pipelines, Vercel, Netlify, Railway, and Agile/Scrum collaboration.'
           ]
         }
       }
@@ -298,8 +315,8 @@ export const XMB_CATEGORIES: XmbCategory[] = [
       {
         id: 'edu-uottawa',
         title: 'University of Ottawa',
-        subtitle: 'BASc, Computer Engineering • Sept 2022 – Dec 2026',
-        description: 'Bachelor of Applied Science in Computer Engineering — software development, data analytics, system automation, and UI/UX engineering.',
+        subtitle: 'BASc, Computer Engineering (Co-op) • Sept 2022 – Dec 2026',
+        description: 'Bachelor of Applied Science in Computer Engineering — software development, databases, AI, and system automation.',
         image: '/logos/uottawa.png',
         iconSvg: SVG_ICONS.uottawa,
         badge: 'BASc',
@@ -307,63 +324,65 @@ export const XMB_CATEGORIES: XmbCategory[] = [
         tags: ['Computer Engineering', 'Co-op', 'uOttawa'],
         action: { type: 'modal' },
         details: {
-          role: 'Bachelor of Applied Science (BASc), Computer Engineering',
+          role: 'BASc, Computer Engineering (Co-op)',
           organization: 'University of Ottawa • Ottawa, Ontario',
-          gradeOrMetric: '4th Year (Expected Graduation: Dec 2026)',
-          overview: 'Pursuing a Bachelor of Applied Science in Computer Engineering at the University of Ottawa, combining hardware/software fundamentals with multiple co-op work terms in aerospace manufacturing and federal government technology.',
+          gradeOrMetric: '4th Year • Expected Graduation: Dec 2026',
+          overview: 'Pursuing a Bachelor of Applied Science in Computer Engineering at the University of Ottawa, combining software/systems engineering fundamentals with 20+ months of co-op experience in aerospace manufacturing and federal government technology.',
           courses: [
+            'CSI 2110: Data Structures & Algorithms',
+            'CSI 2132: Databases I',
+            'CSI 4106: Intro to Artificial Intelligence',
+            'SEG 2105: Intro to Software Engineering',
             'SEG 3125: Analysis & Design of User Interfaces',
-            'Data Structures & Algorithms',
-            'Software Engineering & Mobile App Development',
-            'Database Management Systems & SQL',
-            'Computer Systems & Architecture',
-            'Data Analytics & Automation'
+            'GNG 2101 / Probability & Statistics for Engineers'
           ],
           highlights: [
-            'Completed multiple co-op placements at Curtiss-Wright, Public Service Commission of Canada, and Statistics Canada.',
-            'Participated in uOttaHack 2025, building MedX — an AI health assistant powered by Gadget, Remix, and OpenAI.',
-            'Built hands-on engineering projects spanning full-stack web, Android/Firebase mobile apps, and Python data tools.'
+            'Completed co-op work terms at Curtiss-Wright Defense Solutions, Public Service Commission of Canada, and Statistics Canada.',
+            'Built MedX at uOttaHack 2025 — an AI health assistant powered by Gadget, Remix, and OpenAI.',
+            'Shipped projects spanning real-time multiplayer web apps, Android/Firebase mobile apps, and Python NLP tools.'
           ]
         }
       },
       {
         id: 'edu-pickering',
         title: 'Pickering High School',
-        subtitle: 'High School Diploma • 2018 – 2022',
-        description: 'Ontario Secondary School Diploma.',
+        subtitle: 'Ontario Secondary School Diploma • 2018 – 2022',
+        description: 'Ontario Secondary School Diploma with early foundations in software development and interactive media.',
         image: '/logos/pickering-hs.png',
         iconSvg: SVG_ICONS.education,
+        badge: 'OSSD',
         date: '2018 – 2022',
-        tags: ['High School Diploma'],
+        tags: ['STEM', 'High School Diploma'],
         action: { type: 'modal' },
         details: {
-          role: 'High School Diploma',
-          organization: 'Pickering High School • Ajax / Pickering, Ontario',
-          gradeOrMetric: 'Ontario Secondary School Diploma',
-          overview: 'Completed secondary education, developing early foundations in programming, interactive media, and analytical problem-solving.',
+          role: 'Ontario Secondary School Diploma',
+          organization: 'Pickering High School • Ajax, Ontario',
+          gradeOrMetric: 'Graduated 2022',
+          overview: 'Completed secondary education with a focus on computer science, mathematics, and engineering preparation.',
           highlights: [
-            'Participated in Durham College Computer Programmer & Interactive Media Developer program (June 2021).'
+            'Completed early technical training in software programming and interactive web design.',
+            'Selected for Durham College Computer Programmer & Interactive Media Developer placement (June 2021).'
           ]
         }
       },
       {
         id: 'edu-certifications',
         title: 'Certifications & Accreditations',
-        subtitle: 'Python & R Data Analytics',
+        subtitle: 'DataCamp • Python & R Data Analytics',
         description: 'Intermediate R, Introduction to Importing Data in R, Introduction to R, and Introduction to Python.',
-        iconSvg: SVG_ICONS.folder,
+        iconSvg: SVG_ICONS.certBadge,
         badge: '4 Verified',
-        tags: ['Python', 'R', 'Data Importing'],
+        tags: ['Python', 'R', 'Data Importing', 'DataCamp'],
         action: { type: 'modal' },
         details: {
-          role: 'Verified Certifications',
-          organization: 'Data Analytics Credentials',
-          overview: 'Completed certifications strengthening statistical programming, data ingestion, and software fundamentals:',
+          role: 'Verified Data Analytics Certifications',
+          organization: 'DataCamp',
+          overview: 'Completed certifications strengthening statistical programming, data ingestion, and analytical software fundamentals:',
           highlights: [
-            'Intermediate R',
-            'Introduction to Importing Data in R',
-            'Introduction to R',
-            'Introduction to Python'
+            'Intermediate R — DataCamp',
+            'Introduction to Importing Data in R — DataCamp',
+            'Introduction to R — DataCamp',
+            'Introduction to Python — DataCamp'
           ]
         }
       }
@@ -378,46 +397,49 @@ export const XMB_CATEGORIES: XmbCategory[] = [
     items: [
       {
         id: 'exp-curtiss-wright',
-        title: 'Curtiss-Wright Corporation',
-        subtitle: 'Process Automation & Quality Engineering Co-op • May 2026 – Aug 2026',
-        description: 'Architected automated Python/pandas ETL pipelines across Agile PLM, FactoryLogix MES, and SAP ERP, cutting manual report generation time by 80%.',
+        title: 'Curtiss-Wright Defense Solutions',
+        subtitle: 'Process Automation & Quality Co-op • May 2026 – Aug 2026',
+        description: 'Engineered Python/pandas ETL pipelines cutting manual QC reporting by 80% (15+ hrs/wk saved) and led SAP ECC → S/4HANA data validation.',
         image: '/logos/curtiss-wright.png',
         iconSvg: SVG_ICONS.experience,
-        badge: 'Latest',
+        badge: 'Co-op • 4 Mo',
         date: 'May 2026 – Aug 2026',
-        tags: ['Python', 'pandas', 'ETL', 'Agile PLM', 'FactoryLogix MES', 'SAP ERP'],
+        tags: ['Python', 'pandas', 'ETL', 'Agile PLM', 'FactoryLogix MES', 'SAP S/4HANA'],
         action: { type: 'modal' },
         details: {
-          role: 'Process Automation and Quality Engineering Co-op',
-          organization: 'Curtiss-Wright Corporation • Ottawa, Ontario',
-          overview: 'Engineered automated data pipelines and quality-control analytics tooling for manufacturing operations.',
+          role: 'Process Automation & Quality Engineering (Co-op)',
+          organization: 'Curtiss-Wright Defense Solutions • Ottawa, Ontario',
+          gradeOrMetric: '80% Faster QC Reporting • 15+ hrs/wk Saved',
+          overview: 'Engineered automated data pipelines, cross-platform enterprise integrations, and quality-control analytics workflows for aerospace and defense manufacturing operations.',
           highlights: [
-            'Architected automated ETL pipelines using Python and pandas, reducing manual report generation time by 80% and accelerating critical quality control analytics.',
-            'Engineered Python scripts to extract, transform, and aggregate complex manufacturing datasets across Agile PLM, FactoryLogix MES, and SAP ERP.'
+            'Engineered automated data pipelines and analytical reporting workflows in Python and pandas, eliminating 80% of manual processing and saving 15+ hours weekly.',
+            'Integrated and modeled cross-platform enterprise datasets across Agile PLM, FactoryLogix MES, and SAP ERP, delivering actionable data quality dashboards to client departments.',
+            'Led systematic data quality verification and schema mapping during the enterprise migration from SAP ECC to SAP S/4HANA.'
           ],
-          skillsUsed: ['Python', 'pandas', 'ETL Pipelines', 'Agile PLM', 'FactoryLogix MES', 'SAP ERP']
+          skillsUsed: ['Python', 'pandas', 'ETL Pipelines', 'Agile PLM', 'FactoryLogix MES', 'SAP ERP', 'SAP S/4HANA']
         }
       },
       {
         id: 'exp-psc',
         title: 'Public Service Commission of Canada',
-        subtitle: 'Administrative Technology Advisor • Sept 2025 – Dec 2025',
-        description: 'Built Power Automate workflows and a custom internal Power App for the President’s Office, replacing paper-based infrastructure.',
+        subtitle: 'Administrative Technology Advisor (Co-op) • Sept 2025 – Dec 2025',
+        description: 'Automated President’s Office workflows with Power Platform & SharePoint, boosting data accuracy by 30% and cutting turnaround times by 25%+.',
         image: '/logos/psc-canada.jpg',
         imageScale: 1.24,
         iconSvg: SVG_ICONS.experience,
+        badge: 'Gov • 4 Mo',
         date: 'Sept 2025 – Dec 2025',
         tags: ['Power Automate', 'Power Apps', 'SharePoint', 'Excel'],
         action: { type: 'modal' },
         details: {
-          role: 'Administrative Technology Advisor',
-          organization: 'Public Service Commission of Canada • Gatineau, Quebec',
-          overview: 'Partnered with business units in the President’s Office to modernize operations through Microsoft Power Platform automation and structured data governance.',
+          role: 'Administrative Technology Advisor (Co-op)',
+          organization: 'Public Service Commission of Canada — President’s Office • Gatineau, QC',
+          gradeOrMetric: '+30% Data Accuracy • -25%+ Turnaround Time',
+          overview: 'Partnered with business units in the President’s Office to replace paper-based operations with Microsoft Power Platform automation and validated SharePoint data models.',
           highlights: [
-            'Collaborated cross-functionally with business units to understand operations and define automation opportunities within the President’s Office.',
-            'Developed and deployed automated workflows using Power Automate, integrating various data endpoints to reduce manual processing time.',
-            'Built a custom internal Power App to replace paper-based infrastructure, eliminating duplicate data entry and improving case resolution speed.',
-            'Managed data integrity across SharePoint and Excel using structured data models and automated validations.'
+            'Translated client business needs into automated technical workflows and structured data models across SharePoint, Excel, and Power Platform, improving overall data quality and accuracy by 30%.',
+            'Built a custom internal Power App replacing paper-based infrastructure and eliminating duplicate data entry.',
+            'Deployed automated data dissemination and reporting solutions reducing turnaround times by 25%+, while presenting technical concepts clearly to technical and non-technical stakeholders.'
           ],
           skillsUsed: ['Microsoft Power Automate', 'Microsoft Power Apps', 'SharePoint', 'Microsoft Excel', 'Process Automation']
         }
@@ -425,57 +447,55 @@ export const XMB_CATEGORIES: XmbCategory[] = [
       {
         id: 'exp-statcan',
         title: 'Statistics Canada | Statistique Canada',
-        subtitle: 'Junior Programmer • May 2024 – Apr 2025 (1 yr)',
-        description: 'Supported national Foreign Direct Investment economic reporting by modernizing legacy workflows in R, automating Python scripts, and querying Oracle & SQL Server.',
+        subtitle: 'Junior Programmer (Co-op) • May 2024 – Apr 2025 (1 yr)',
+        description: 'Migrated 5 legacy SAS ETL workflows to R & Python (+50% faster acquisition) and queried Oracle & SQL Server to validate billion-dollar trade datasets.',
         image: '/logos/statcan.png',
         imageScale: 1.85,
         iconSvg: SVG_ICONS.experience,
-        badge: '1 Year',
+        badge: 'Gov • 1 Yr',
         date: 'May 2024 – Apr 2025',
-        tags: ['R', 'Python', 'SQL', 'Oracle', 'SQL Server', 'Agile'],
+        tags: ['R', 'Python', 'SQL', 'Oracle', 'SQL Server', 'SAS'],
         action: { type: 'modal' },
         details: {
-          role: 'Junior Programmer',
-          organization: 'Statistics Canada (International Accounts & Trade Division) • Ottawa, Ontario',
-          overview: 'Worked with the Foreign Direct Investment Team to support national economic reporting through automation, open-source modernization, and large-scale SQL data querying.',
+          role: 'Junior Programmer (Co-op)',
+          organization: 'Statistics Canada — International Accounts & Trade Division • Ottawa, ON',
+          gradeOrMetric: '5 SAS Pipelines Migrated • +50% Faster Acquisition',
+          overview: 'Built automated data pipelines and analytical solutions for the Foreign Direct Investment Team supporting national macroeconomic and international trade reporting.',
           highlights: [
-            'Worked with the International Accounts and Trade Division (Foreign Direct Investment Team) to support national economic reporting through automation and improved data workflows.',
-            'Helped modernize legacy processes by replacing outdated tools with open-source solutions like R.',
-            'Improved data reliability and transparency by translating critical scripts and workflows.',
-            'Automated stock data collection using Python, reducing manual work and saving time.',
-            'Queried large economic datasets from Oracle and SQL Server for internal reporting utilizing SQL.',
-            'Collaborated closely with economists and analysts in an agile team environment.'
+            'Migrated 5 legacy SAS ETL workflows into modern R and Python pipelines, accelerating stockholder/securities data acquisition by 50%.',
+            'Designed and executed complex SQL queries across large-scale Oracle and SQL Server databases to extract, model, and validate macroeconomic datasets — resolving discrepancies worth billions.',
+            'Collaborated within Agile product teams alongside economists and IT partners to translate analytical needs into interactive dashboards and data visualizations.'
           ],
-          skillsUsed: ['R', 'Python', 'SQL', 'Oracle', 'SQL Server', 'Data Workflows', 'Agile']
+          skillsUsed: ['R (tidyverse)', 'Python', 'SQL', 'Oracle', 'SQL Server', 'SAS', 'Agile']
         }
       },
       {
         id: 'exp-durham',
         title: 'Durham College',
         subtitle: 'Computer Programmer & Interactive Media Developer • June 2021',
-        description: 'Collaborated on programming and interactive media design, proposing and implementing website UI/UX improvements.',
+        description: 'Collaborated on web programming and interactive media design, proposing and implementing website UI/UX improvements.',
         image: '/logos/durham-college.png',
         imageScale: 1.08,
         iconSvg: SVG_ICONS.experience,
+        badge: 'Program',
         date: 'June 2021',
-        tags: ['UI/UX', 'Web Design', 'Reporting'],
+        tags: ['UI/UX', 'Web Design', 'Technical Reporting'],
         action: { type: 'modal' },
         details: {
-          role: 'Computer Programmer and Interactive Media Developer',
-          organization: 'Durham College',
-          overview: 'Explored software development and interactive media design in a team setting with a focus on practical UI/UX enhancements.',
+          role: 'Computer Programmer & Interactive Media Developer',
+          organization: 'Durham College • Oshawa, Ontario',
+          overview: 'Explored software development and interactive media design in a collaborative team environment focused on practical UI/UX enhancements.',
           highlights: [
-            'Explored programming and design topics with a team.',
-            'Suggested and implemented new changes to the UI/UX experience of a website to better it for users.',
-            'Created multiple reports based on findings in a professionally organized manner.'
+            'Evaluated existing web interfaces with a development team and implemented targeted UI/UX usability improvements.',
+            'Authored structured technical findings and design reports documenting user-experience recommendations.'
           ],
-          skillsUsed: ['UI/UX Design', 'Web Development', 'Technical Reporting', 'Team Collaboration']
+          skillsUsed: ['UI/UX Design', 'Web Development', 'Technical Reporting']
         }
       }
     ]
   },
 
-  // 6. PROJECTS (Pinned Repositories from github.com/ashketh21)
+  // 6. PROJECTS (Pinned Repositories from github.com/ashketh21 — Chronological 2026 → 2024)
   {
     id: 'projects',
     label: 'Projects',
@@ -508,13 +528,13 @@ export const XMB_CATEGORIES: XmbCategory[] = [
       },
       {
         id: 'proj-adaptive-trivia',
-        title: 'Volatility Engine — Adaptive Trivia Game',
-        subtitle: 'Real-Time Multiplayer Trivia & Wagering',
-        description: 'Adaptive trivia game where players act as investors wagering on questions with dynamic volatility score multipliers, featuring a shared Host screen and phone Controllers.',
+        title: 'Volatility Engine',
+        subtitle: 'Real-Time Multiplayer Trivia & Competitive Wagering',
+        description: 'Adaptive trivia game where players act as investors wagering on questions with dynamic volatility score multipliers across a shared Host screen and phone Controllers.',
         iconSvg: SVG_ICONS.trivia,
         badge: 'Live Demo',
         date: '2026',
-        tags: ['TypeScript', 'Next.js', 'Node.js', 'Express', 'Prisma', 'PostgreSQL'],
+        tags: ['TypeScript', 'Next.js', 'Node.js', 'WebSockets', 'Prisma', 'PostgreSQL'],
         demoUrl: 'https://adaptive-trivia-game-host.vercel.app',
         githubUrl: 'https://github.com/ashketh21/Adaptive-Trivia-Game',
         action: { type: 'modal' },
@@ -539,7 +559,7 @@ export const XMB_CATEGORIES: XmbCategory[] = [
         iconSvg: SVG_ICONS.jobRecommender,
         badge: 'Python / NLP',
         date: '2026',
-        tags: ['Python', 'Flask', 'Selenium', 'PyMuPDF', 'TF-IDF', 'HTML'],
+        tags: ['Python', 'Flask', 'scikit-learn', 'pandas', 'Selenium', 'PyMuPDF'],
         githubUrl: 'https://github.com/ashketh21/job-recommender',
         action: { type: 'modal' },
         details: {
@@ -552,7 +572,7 @@ export const XMB_CATEGORIES: XmbCategory[] = [
             'Granular Filters: Filter by keywords, Canadian city or remote-only, date posted (24h–14d), and seniority level (Intern/Co-op through Senior).',
             'Matched & Missing Skill Badges: Detects 100+ tech skills locally and highlights skill gaps and detected years of experience on every job card.'
           ],
-          skillsUsed: ['Python', 'Flask', 'Selenium', 'PyMuPDF', 'TF-IDF', 'Web Scraping', 'HTML/CSS']
+          skillsUsed: ['Python', 'Flask', 'scikit-learn', 'pandas', 'Selenium', 'PyMuPDF', 'TF-IDF']
         }
       },
       {
@@ -580,6 +600,30 @@ export const XMB_CATEGORIES: XmbCategory[] = [
         }
       },
       {
+        id: 'proj-seg3125',
+        title: 'SEG 3125 UI/UX Portfolio',
+        subtitle: 'UI/UX Design Case Study • uOttawa',
+        description: 'Interactive portfolio design project created for SEG 3125 to explore user-centered UI/UX design principles and responsive web layout.',
+        iconSvg: SVG_ICONS.uiux,
+        badge: 'Live Demo',
+        date: '2025',
+        tags: ['HTML5', 'CSS3', 'UI/UX Design', 'Netlify'],
+        demoUrl: 'https://ashvinkuiuxportfolio.netlify.app',
+        githubUrl: 'https://github.com/ashketh21/SEG-3125-Portfolio-Project',
+        action: { type: 'modal' },
+        details: {
+          role: 'UI/UX Designer & Developer',
+          organization: 'University of Ottawa (SEG 3125)',
+          overview: 'A UI/UX design learning project built for uOttawa’s Analysis and Design of User Interfaces course (SEG 3125), focused on visual hierarchy, usability, and clean responsive design.',
+          highlights: [
+            'Applied core HCI and UI/UX design heuristics to structure project case studies and navigation.',
+            'Crafted clean, lightweight semantic HTML/CSS layouts.',
+            'Deployed and hosted live on Netlify.'
+          ],
+          skillsUsed: ['HTML5', 'CSS3', 'UI/UX Design', 'HCI Principles', 'Netlify']
+        }
+      },
+      {
         id: 'proj-cycling-club',
         title: 'Cycling Club Android App',
         subtitle: 'Native Android Mobile Application',
@@ -601,30 +645,6 @@ export const XMB_CATEGORIES: XmbCategory[] = [
           ],
           skillsUsed: ['Java', 'Android Studio', 'Firebase', 'XML Layouts', 'Mobile Development']
         }
-      },
-      {
-        id: 'proj-seg3125',
-        title: 'SEG 3125 UI/UX Portfolio',
-        subtitle: 'UI/UX Design Study • Live on Netlify',
-        description: 'Interactive portfolio design project created for SEG 3125 to explore user-centered UI/UX design principles and responsive web layout.',
-        iconSvg: SVG_ICONS.uiux,
-        badge: 'Live Demo',
-        date: '2025',
-        tags: ['HTML', 'CSS', 'UI/UX Design', 'Netlify'],
-        demoUrl: 'https://ashvinkuiuxportfolio.netlify.app',
-        githubUrl: 'https://github.com/ashketh21/SEG-3125-Portfolio-Project',
-        action: { type: 'modal' },
-        details: {
-          role: 'UI/UX Designer & Developer',
-          organization: 'University of Ottawa (SEG 3125) • Pinned GitHub Project',
-          overview: 'A UI/UX design learning project built for uOttawa’s Analysis and Design of User Interfaces course (SEG 3125), focused on visual hierarchy, usability, and clean responsive design.',
-          highlights: [
-            'Applied core HCI and UI/UX design heuristics to structure project case studies and navigation.',
-            'Crafted clean, lightweight semantic HTML/CSS layouts.',
-            'Deployed and hosted live on Netlify.'
-          ],
-          skillsUsed: ['HTML5', 'CSS3', 'UI/UX Design', 'HCI Principles', 'Netlify']
-        }
       }
     ]
   },
@@ -637,11 +657,11 @@ export const XMB_CATEGORIES: XmbCategory[] = [
     items: [
       {
         id: 'contact-email',
-        title: 'Email: ashvinkethiswaran@gmail.com',
-        subtitle: 'Send Electronic Mail',
-        description: 'Direct email communication. Press Enter to copy address to clipboard.',
-        iconSvg: SVG_ICONS.email,
-        badge: 'Direct',
+        title: 'Electronic Mail',
+        subtitle: 'ashvinkethiswaran@gmail.com • Press Enter to Copy',
+        description: 'Direct email communication. Press Enter to copy ashvinkethiswaran@gmail.com to your clipboard.',
+        iconSvg: SVG_ICONS.contactEmail,
+        badge: 'Copy',
         linkUrl: 'mailto:ashvinkethiswaran@gmail.com',
         action: { type: 'copy', payload: 'ashvinkethiswaran@gmail.com' }
       },
@@ -650,7 +670,8 @@ export const XMB_CATEGORIES: XmbCategory[] = [
         title: 'GitHub Profile',
         subtitle: 'github.com/ashketh21',
         description: 'Explore my pinned repositories, hackathon builds, and software engineering projects.',
-        iconSvg: SVG_ICONS.github,
+        iconSvg: SVG_ICONS.contactGithub,
+        badge: 'GitHub',
         linkUrl: 'https://github.com/ashketh21',
         action: { type: 'link', payload: 'https://github.com/ashketh21' }
       },
@@ -659,27 +680,28 @@ export const XMB_CATEGORIES: XmbCategory[] = [
         title: 'LinkedIn Network',
         subtitle: 'linkedin.com/in/ashvinkethiswaran',
         description: 'Connect with Ashvin Kethiswaran professionally on LinkedIn for engineering opportunities and collaborations.',
-        iconSvg: SVG_ICONS.linkedin,
+        iconSvg: SVG_ICONS.contactLinkedin,
+        badge: 'Connect',
         linkUrl: 'https://www.linkedin.com/in/ashvinkethiswaran',
         action: { type: 'link', payload: 'https://www.linkedin.com/in/ashvinkethiswaran' }
       },
       {
         id: 'contact-message',
         title: 'Send Message',
-        subtitle: 'Interactive Message Form',
+        subtitle: 'Interactive Message Composer',
         description: 'Compose and dispatch a message directly to Ashvin through the console interface.',
-        iconSvg: SVG_ICONS.contact,
+        iconSvg: SVG_ICONS.contactMessage,
         badge: 'Compose',
         action: { type: 'modal' },
         details: {
-          role: 'Interactive Message Dispatcher',
-          organization: 'Message Utility',
-          overview: 'Ready to collaborate or discuss a software engineering, data, or automation role? Leave a direct message below:',
-          highlights: [
-            '📧 Email: ashvinkethiswaran@gmail.com',
-            '🌐 Location: Ajax / Ottawa, Ontario, Canada',
-            '💼 Opportunities: Software Engineering, Data Pipelines, System Automation & Full-Stack roles.'
-          ]
+          role: 'Direct Message',
+          organization: 'Ajax / Ottawa, ON',
+          overview: 'Ready to collaborate or discuss a 2027 New Grad software engineering, data, or automation role? Compose a message below:',
+          extraInfo: {
+            'Email': 'ashvinkethiswaran@gmail.com',
+            'Location': 'Ajax / Ottawa, Ontario',
+            'Roles': 'SWE, Data Pipelines & Automation'
+          }
         }
       }
     ]
