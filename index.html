@@ -23,57 +23,23 @@
     <!-- CRT Scanline / Subtle Vignette Overlay -->
     <div class="screen-vignette" aria-hidden="true"></div>
 
-    <!-- Cold Boot Screen ("AK" Cinematic Intro - WebGL Dynamic Wave visible behind) -->
+    <!-- Cold Boot Screen ("AK" Cinematic Fade-In Intro) -->
     <section id="boot-screen" class="boot-screen active" role="region" aria-label="Startup Intro">
+      <div class="boot-veil" aria-hidden="true"></div>
       <div class="boot-lockup-wrapper">
         <div class="boot-logo-lockup">
-          <!-- PlayStation-style AK Isometric Emblem -->
-          <svg class="boot-emblem" viewBox="0 0 76 80" width="76" height="80" aria-hidden="true">
-            <defs>
-              <linearGradient id="emblemGradA" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#ffffff"/>
-                <stop offset="100%" stop-color="#cfd2d6"/>
-              </linearGradient>
-              <linearGradient id="emblemGradK" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#ff3b69"/>
-                <stop offset="50%" stop-color="#2d7dd2"/>
-                <stop offset="100%" stop-color="#f4a261"/>
-              </linearGradient>
-              <filter id="emblemGlow">
-                <feGaussianBlur stdDeviation="3" result="glow"/>
-                <feMerge>
-                  <feMergeNode in="glow"/>
-                  <feMergeNode in="SourceGraphic"/>
-                </feMerge>
-              </filter>
-            </defs>
-            <!-- Upright Monogram 'A' -->
-            <path d="M 28,8 L 44,8 L 56,58 L 42,58 L 39,45 L 31,45 L 28,58 L 16,58 Z M 33,33 L 37,33 L 35,20 Z" fill="url(#emblemGradA)" filter="url(#emblemGlow)"/>
-            <!-- Grounded Isometric Perspective 'K' Base -->
-            <path d="M 12,62 L 40,56 L 60,64 L 38,70 Z M 40,56 L 54,51 L 66,58 L 50,63 Z M 46,64 L 60,68 L 50,72 L 36,69 Z" fill="url(#emblemGradK)" opacity="0.95" filter="url(#emblemGlow)"/>
-          </svg>
-
           <!-- Authentic PhatBoy Slim Typography for AK -->
           <div class="boot-wordmark-group">
             <h1 class="boot-ak-brand" aria-label="AK">AK</h1>
             <p class="boot-subtext-ps3">Ashvin Kethiswaran</p>
           </div>
         </div>
-
-        <button id="boot-enter-btn" class="boot-enter-btn" type="button" autofocus>
-          <span class="ps-btn ps-btn-cross" aria-hidden="true">
-            <svg viewBox="0 0 16 16">
-              <line x1="3.5" y1="3.5" x2="12.5" y2="12.5" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/>
-              <line x1="12.5" y1="3.5" x2="3.5" y2="12.5" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/>
-            </svg>
-          </span>
-          <span class="boot-btn-text">PRESS ANY BUTTON TO START</span>
-        </button>
       </div>
+      <p class="boot-skip-hint" aria-hidden="true">Click or press any key to skip</p>
     </section>
 
     <!-- Main XMB Application Shell -->
-    <div id="xmb-app" class="xmb-app" style="opacity: 0; pointer-events: none;">
+    <div id="xmb-app" class="xmb-app" style="opacity: 0; pointer-events: none; transform: translateY(10px);">
       <!-- Top HUD: Clock, Date, Battery, Profile Status, Ticker -->
       <header id="hud-header" class="hud-header" role="banner">
         <div class="hud-left">

@@ -17,7 +17,7 @@ class XMBApplication {
   private hudHeader!: HudHeader;
 
   // Navigation state
-  private selectedCategoryIndex = 0; // Starts at Settings, or can be 1 (Profile)
+  private selectedCategoryIndex = 1; // Starts at Profile
   private selectedItemIndex = 0;
 
   // DOM Elements
@@ -184,7 +184,7 @@ class XMBApplication {
         toast.show('System Reboot', 'Restarting System...', 'info');
         setTimeout(() => {
           this.hudHeader.showWelcome(false);
-          this.waveEngine.setTheme('violet');
+          this.waveEngine.setTheme('obsidian');
           this.bootSequence.restart();
         }, 600);
         break;

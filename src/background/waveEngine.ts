@@ -55,9 +55,9 @@ export class WaveEngine {
   private uAmpMultLoc: WebGLUniformLocation | null = null;
   private uSharpnessMultLoc: WebGLUniformLocation | null = null;
 
-  // Current and target colors for smooth transitions (Starts with PS3 violet coldboot)
-  private currentColors: ThemeColors = { ...THEME_PALETTES.violet };
-  private targetColors: ThemeColors = { ...THEME_PALETTES.violet };
+  // Current and target colors for smooth transitions (Starts in Midnight Obsidian)
+  private currentColors: ThemeColors = { ...THEME_PALETTES.obsidian };
+  private targetColors: ThemeColors = { ...THEME_PALETTES.obsidian };
 
   private speedMultiplier = 1.0;
   private ampMultiplier = 1.0;
