@@ -26,6 +26,7 @@ export interface XmbSubItem {
   demoUrl?: string;
   githubUrl?: string;
   image?: string;
+  imageScale?: number;
   action: XmbAction;
   details?: {
     overview?: string;

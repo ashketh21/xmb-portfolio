@@ -3,34 +3,49 @@ import { XmbCategory } from '../types';
 // Crisp, authentic PS3-styled monochrome SVG icons
 export const SVG_ICONS = {
   settings: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>`,
-  
+
   profile: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>`,
-  
+
   skills: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 21h-1l1-7H7.5c-.88 0-.33-.75-.31-.78C8.48 10.94 10.42 7.54 13 3h1l-1 7h3.5c.49 0 .56.33.47.51l-.07.15C12.96 17.55 11 21 11 21z"/></svg>`,
-  
+
   education: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>`,
-  
+
   experience: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>`,
-  
+
   projects: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4-3c-.83 0-1.5-.67-1.5-1.5S18.67 9 19.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>`,
-  
+
   contact: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>`,
 
   disc: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 13c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/></svg>`,
-  
+
   folder: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/></svg>`,
-  
+
   trophy: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/></svg>`,
-  
+
   code: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>`,
-  
+
   external: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>`,
-  
+
   github: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>`,
-  
+
   linkedin: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>`,
-  
-  email: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>`
+
+  email: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>`,
+
+  // Custom PS3-style Emblem Tiles (48x48) for Education & Projects
+  uottawa: `<svg viewBox="0 0 48 48" fill="none"><rect x="2" y="2" width="44" height="44" rx="11" fill="#6E0014" stroke="rgba(255,255,255,0.45)" stroke-width="1.5"/><path d="M10 11h28v15c0 8.5-6.2 13.8-14 16.5C16.2 39.8 10 34.5 10 26V11z" fill="#8F001A" stroke="rgba(255,255,255,0.75)" stroke-width="1.4"/><text x="24" y="29" text-anchor="middle" fill="#FFFFFF" font-family="Georgia, serif" font-weight="700" font-size="16" letter-spacing="-0.5">uO</text></svg>`,
+
+  songsnap: `<svg viewBox="0 0 48 48" fill="none"><rect x="2" y="2" width="44" height="44" rx="11" fill="#0C1F14" stroke="rgba(29,185,84,0.65)" stroke-width="1.5"/><circle cx="24" cy="24" r="14" fill="#1DB954" fill-opacity="0.18" stroke="#1DB954" stroke-width="1.6"/><path d="M16 20c5-1.6 11-1.3 15.8.8M17.5 25c4.2-1.2 9.2-1 13.2.7M19 29.8c3.2-.8 7-.6 10 .5" stroke="#1DB954" stroke-width="2.4" stroke-linecap="round"/><circle cx="34" cy="14" r="3.5" fill="#1DB954"/></svg>`,
+
+  trivia: `<svg viewBox="0 0 48 48" fill="none"><rect x="2" y="2" width="44" height="44" rx="11" fill="#0B192C" stroke="rgba(56,189,248,0.65)" stroke-width="1.5"/><path d="M9 32l7-8 6 5 8-13 5 4 4-6" stroke="#38BDF8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M35 14h4v4" stroke="#F59E0B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="22" cy="29" r="2.5" fill="#F59E0B"/><circle cx="30" cy="16" r="2.5" fill="#38BDF8"/></svg>`,
+
+  jobRecommender: `<svg viewBox="0 0 48 48" fill="none"><rect x="2" y="2" width="44" height="44" rx="11" fill="#0F1B33" stroke="rgba(96,165,250,0.6)" stroke-width="1.5"/><rect x="11" y="10" width="18" height="24" rx="3" fill="rgba(96,165,250,0.18)" stroke="#93C5FD" stroke-width="1.6"/><path d="M15 16h10M15 21h8M15 26h6" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/><circle cx="31" cy="29" r="6" fill="#0F1B33" stroke="#60A5FA" stroke-width="2.2"/><path d="M35.5 33.5L39 37" stroke="#60A5FA" stroke-width="2.6" stroke-linecap="round"/></svg>`,
+
+  medx: `<svg viewBox="0 0 48 48" fill="none"><rect x="2" y="2" width="44" height="44" rx="11" fill="#230E18" stroke="rgba(244,63,94,0.65)" stroke-width="1.5"/><path d="M21 11h6v10h10v6H27v10h-6V27H11v-6h10V11z" fill="rgba(244,63,94,0.25)" stroke="#FB7185" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 24h6l2.5-5 3.5 10 2.5-5H36" stroke="#34D399" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+
+  cycling: `<svg viewBox="0 0 48 48" fill="none"><rect x="2" y="2" width="44" height="44" rx="11" fill="#0B2217" stroke="rgba(61,220,132,0.65)" stroke-width="1.5"/><circle cx="15" cy="30" r="6.5" stroke="#3DDC84" stroke-width="2.2"/><circle cx="33" cy="30" r="6.5" stroke="#3DDC84" stroke-width="2.2"/><path d="M15 30l7-11h7l4 11M22 19l-2-4h-3M29 19l2-4h3" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+
+  uiux: `<svg viewBox="0 0 48 48" fill="none"><rect x="2" y="2" width="44" height="44" rx="11" fill="#1C1230" stroke="rgba(167,139,250,0.65)" stroke-width="1.5"/><rect x="10" y="11" width="28" height="8" rx="2.5" fill="rgba(167,139,250,0.3)" stroke="#C4B5FD" stroke-width="1.5"/><rect x="10" y="23" width="12" height="14" rx="2.5" fill="rgba(167,139,250,0.18)" stroke="#A78BFA" stroke-width="1.5"/><rect x="26" y="23" width="12" height="14" rx="2.5" fill="rgba(244,114,182,0.22)" stroke="#F472B6" stroke-width="1.5"/></svg>`
 };
 
 export const XMB_CATEGORIES: XmbCategory[] = [
@@ -285,7 +300,8 @@ export const XMB_CATEGORIES: XmbCategory[] = [
         title: 'University of Ottawa',
         subtitle: 'BASc, Computer Engineering • Sept 2022 – Dec 2026',
         description: 'Bachelor of Applied Science in Computer Engineering — software development, data analytics, system automation, and UI/UX engineering.',
-        iconSvg: SVG_ICONS.education,
+        image: '/logos/uottawa.png',
+        iconSvg: SVG_ICONS.uottawa,
         badge: 'BASc',
         date: 'Sept 2022 – Dec 2026',
         tags: ['Computer Engineering', 'Co-op', 'uOttawa'],
@@ -315,6 +331,7 @@ export const XMB_CATEGORIES: XmbCategory[] = [
         title: 'Pickering High School',
         subtitle: 'High School Diploma • 2018 – 2022',
         description: 'Ontario Secondary School Diploma.',
+        image: '/logos/pickering-hs.png',
         iconSvg: SVG_ICONS.education,
         date: '2018 – 2022',
         tags: ['High School Diploma'],
@@ -364,6 +381,7 @@ export const XMB_CATEGORIES: XmbCategory[] = [
         title: 'Curtiss-Wright Corporation',
         subtitle: 'Process Automation & Quality Engineering Co-op • May 2026 – Aug 2026',
         description: 'Architected automated Python/pandas ETL pipelines across Agile PLM, FactoryLogix MES, and SAP ERP, cutting manual report generation time by 80%.',
+        image: '/logos/curtiss-wright.png',
         iconSvg: SVG_ICONS.experience,
         badge: 'Latest',
         date: 'May 2026 – Aug 2026',
@@ -385,6 +403,8 @@ export const XMB_CATEGORIES: XmbCategory[] = [
         title: 'Public Service Commission of Canada',
         subtitle: 'Administrative Technology Advisor • Sept 2025 – Dec 2025',
         description: 'Built Power Automate workflows and a custom internal Power App for the President’s Office, replacing paper-based infrastructure.',
+        image: '/logos/psc-canada.jpg',
+        imageScale: 1.24,
         iconSvg: SVG_ICONS.experience,
         date: 'Sept 2025 – Dec 2025',
         tags: ['Power Automate', 'Power Apps', 'SharePoint', 'Excel'],
@@ -407,6 +427,8 @@ export const XMB_CATEGORIES: XmbCategory[] = [
         title: 'Statistics Canada | Statistique Canada',
         subtitle: 'Junior Programmer • May 2024 – Apr 2025 (1 yr)',
         description: 'Supported national Foreign Direct Investment economic reporting by modernizing legacy workflows in R, automating Python scripts, and querying Oracle & SQL Server.',
+        image: '/logos/statcan.png',
+        imageScale: 1.85,
         iconSvg: SVG_ICONS.experience,
         badge: '1 Year',
         date: 'May 2024 – Apr 2025',
@@ -432,6 +454,8 @@ export const XMB_CATEGORIES: XmbCategory[] = [
         title: 'Durham College',
         subtitle: 'Computer Programmer & Interactive Media Developer • June 2021',
         description: 'Collaborated on programming and interactive media design, proposing and implementing website UI/UX improvements.',
+        image: '/logos/durham-college.png',
+        imageScale: 1.08,
         iconSvg: SVG_ICONS.experience,
         date: 'June 2021',
         tags: ['UI/UX', 'Web Design', 'Reporting'],
@@ -462,7 +486,7 @@ export const XMB_CATEGORIES: XmbCategory[] = [
         title: 'SongSnap',
         subtitle: 'Solo & Multiplayer Spotify Guessing Game',
         description: 'Competitive solo & multiplayer music guessing game powered by your own public Spotify playlists with progressive 0.1s–10s audio clips and synchronized lobbies.',
-        iconSvg: SVG_ICONS.disc,
+        iconSvg: SVG_ICONS.songsnap,
         badge: 'Live Demo',
         date: '2026',
         tags: ['TypeScript', 'React', 'Vite', 'Tailwind CSS', 'Web Audio API', 'Node.js'],
@@ -487,7 +511,7 @@ export const XMB_CATEGORIES: XmbCategory[] = [
         title: 'Volatility Engine — Adaptive Trivia Game',
         subtitle: 'Real-Time Multiplayer Trivia & Wagering',
         description: 'Adaptive trivia game where players act as investors wagering on questions with dynamic volatility score multipliers, featuring a shared Host screen and phone Controllers.',
-        iconSvg: SVG_ICONS.disc,
+        iconSvg: SVG_ICONS.trivia,
         badge: 'Live Demo',
         date: '2026',
         tags: ['TypeScript', 'Next.js', 'Node.js', 'Express', 'Prisma', 'PostgreSQL'],
@@ -512,7 +536,7 @@ export const XMB_CATEGORIES: XmbCategory[] = [
         title: 'Smart Job Recommender',
         subtitle: 'Resume Matcher & Live Job Scraper',
         description: 'Local-first Flask app that parses PDF resumes, scrapes live Canadian tech listings from Indeed, and ranks matches via hybrid TF-IDF cosine similarity + skill gap analysis.',
-        iconSvg: SVG_ICONS.disc,
+        iconSvg: SVG_ICONS.jobRecommender,
         badge: 'Python / NLP',
         date: '2026',
         tags: ['Python', 'Flask', 'Selenium', 'PyMuPDF', 'TF-IDF', 'HTML'],
@@ -536,7 +560,7 @@ export const XMB_CATEGORIES: XmbCategory[] = [
         title: 'MedX — AI Health Assistant',
         subtitle: 'uOttaHack 2025 Submission',
         description: 'AI-powered health assistant built for uOttaHack 2025 using Gadget, Remix, React, OpenAI, and Google Maps Places API.',
-        iconSvg: SVG_ICONS.disc,
+        iconSvg: SVG_ICONS.medx,
         badge: 'uOttaHack',
         date: '2025',
         tags: ['TypeScript', 'React', 'Remix', 'Gadget', 'OpenAI API', 'Tailwind CSS'],
@@ -560,7 +584,7 @@ export const XMB_CATEGORIES: XmbCategory[] = [
         title: 'Cycling Club Android App',
         subtitle: 'Native Android Mobile Application',
         description: 'Native Android cycling club management app built in Java with Android Studio and backed by Firebase.',
-        iconSvg: SVG_ICONS.disc,
+        iconSvg: SVG_ICONS.cycling,
         badge: 'Android',
         date: '2024',
         tags: ['Java', 'Android Studio', 'Firebase', 'Mobile UI'],
@@ -583,7 +607,7 @@ export const XMB_CATEGORIES: XmbCategory[] = [
         title: 'SEG 3125 UI/UX Portfolio',
         subtitle: 'UI/UX Design Study • Live on Netlify',
         description: 'Interactive portfolio design project created for SEG 3125 to explore user-centered UI/UX design principles and responsive web layout.',
-        iconSvg: SVG_ICONS.disc,
+        iconSvg: SVG_ICONS.uiux,
         badge: 'Live Demo',
         date: '2025',
         tags: ['HTML', 'CSS', 'UI/UX Design', 'Netlify'],

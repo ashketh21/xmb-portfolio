@@ -320,10 +320,10 @@ class XMBApplication {
     const viewportWidth = this.horizontalBarEl.clientWidth || window.innerWidth;
     const maxSteps = Math.max(1, XMB_CATEGORIES.length - 1);
 
-    // Center the active category in the viewport while scaling spacing so every
-    // category across the bar stays fully visible without clipping at the edges.
-    const availableHalf = Math.max(240, viewportWidth / 2 - 78);
-    const itemSpacing = Math.max(88, Math.min(132, Math.floor(availableHalf / maxSteps)));
+    // Match classic PS3 XMB proportions: active rail at ~29vw from the left,
+    // spreading remaining categories smoothly across the right ~65% of the viewport.
+    const availableRight = Math.max(360, viewportWidth * 0.65);
+    const itemSpacing = Math.max(110, Math.min(188, Math.floor(availableRight / maxSteps)));
 
     items.forEach((el, index) => {
       const diff = index - this.selectedCategoryIndex;
@@ -349,8 +349,16 @@ class XMBApplication {
 
       const badgeHtml = item.badge ? `<span class="row-badge">${item.badge}</span>` : '';
 
+      const hasLogo = Boolean(item.image);
+      const isEmblem = !hasLogo && Boolean(item.iconSvg && item.iconSvg.includes('viewBox="0 0 48 48"'));
+      const imgStyle = item.imageScale ? ` style="transform: scale(${item.imageScale});"` : '';
+      const iconContent = hasLogo
+        ? `<img src="${item.image}" alt="${item.title} logo" class="row-logo-img"${imgStyle} />`
+        : (item.iconSvg || SVG_FALLBACK);
+      const iconBoxClass = hasLogo ? 'row-icon-box has-logo' : isEmblem ? 'row-icon-box is-emblem' : 'row-icon-box';
+
       rowEl.innerHTML = `
-        <div class="row-icon-box">${item.iconSvg || SVG_FALLBACK}</div>
+        <div class="${iconBoxClass}">${iconContent}</div>
         <div class="row-text-content">
           <div class="row-title-line">
             <span class="row-title">${item.title}</span>
@@ -372,8 +380,8 @@ class XMBApplication {
 
   private updateVerticalPositions() {
     const rows = this.verticalColumnEl.querySelectorAll<HTMLElement>('.xmb-sub-row');
-    // Dynamically clear the horizontal category bar regardless of viewport height
-    const aboveBarGap = Math.max(220, Math.round(window.innerHeight * 0.23) + 64);
+    // Position previous items cleanly ABOVE the 15vh horizontal category bar
+    const aboveBarGap = Math.max(215, Math.round(window.innerHeight * 0.21) + 56);
 
     rows.forEach((el, index) => {
       const diff = index - this.selectedItemIndex;
@@ -385,10 +393,10 @@ class XMBApplication {
         el.style.pointerEvents = 'auto';
         el.classList.add('selected');
       } else if (diff > 0) {
-        // Items BELOW the selected item (spaced downwards)
-        const yOffset = 78 + (diff - 1) * 56;
+        // Items BELOW the selected item (airy PS3 spacing)
+        const yOffset = 108 + (diff - 1) * 70;
         el.style.transform = `translateY(${yOffset}px)`;
-        const opacity = Math.max(0.28, 0.82 - (diff - 1) * 0.14);
+        const opacity = Math.max(0.24, 0.62 - (diff - 1) * 0.12);
         el.style.opacity = String(opacity);
         el.style.pointerEvents = opacity > 0.1 ? 'auto' : 'none';
         el.classList.remove('selected');
@@ -396,9 +404,9 @@ class XMBApplication {
         // Items ABOVE the selected item:
         // Positioned cleanly ABOVE the horizontal category bar
         const k = -diff; // 1, 2, 3...
-        const yOffset = -aboveBarGap - (k - 1) * 54;
+        const yOffset = -aboveBarGap - (k - 1) * 58;
         el.style.transform = `translateY(${yOffset}px)`;
-        const opacity = Math.max(0.24, 0.78 - (k - 1) * 0.18);
+        const opacity = Math.max(0.22, 0.58 - (k - 1) * 0.15);
         el.style.opacity = String(opacity);
         el.style.pointerEvents = opacity > 0.1 ? 'auto' : 'none';
         el.classList.remove('selected');
